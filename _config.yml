@@ -23,27 +23,30 @@ email: luis.calderon@uni-bonn.de
 description: >- # this means to ignore newlines until "baseurl:"
   Inequality. Policy Transmission. Functional Data. Semi-structural Time Series. Bayesian Statistics. Non-parametric Statistics.
 
-The above are both interesting topics and tools that I've had the pleasure of working with these past few years at UniBonn. 
+  The above are both interesting topics and tools that I've had the pleasure of working with these past few years at UniBonn.
 
-The purpose of these pursuits has been to shed meaningful insights on inequality along the business cycle, extracting as much information from the universe of data out there, while being 
-fluid in my approaches.
+  The purpose of these pursuits has been to shed meaningful insights on inequality along the business cycle, extracting as much information from the universe of data out there, while being 
+  fluid in my approaches.
 
-In August, I plan to attend the Dynamic Structural Econometrics (DSE) Summer School, where I can further expand my arsenal.
+  In August, I plan to attend the Dynamic Structural Econometrics (DSE) Summer School, where I can further expand my arsenal.
 
-Feel free to check back. Will post some cool stuff soon!
+  Feel free to check back. Will post some cool stuff soon!
 
-I will be on the academic market 2025/2026.
+  I will be on the academic market 2025/2026.
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://luiscald.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
-github_username:  luiscald
+github_username: luiscald
 
-# nav:
-#   - title: "About"
-#     url: "/about"
-#   - title: "Projects"
-#     url: "/projects"
+# Navigation links
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+  - title: "Projects"
+    url: "/projects"
 
 # Build settings
 theme: minima
@@ -55,17 +58,14 @@ plugins:
 # Any item listed under the `exclude:` key here will be automatically added to
 # the internal "default list".
 #
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
