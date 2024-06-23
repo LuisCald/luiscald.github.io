@@ -4,7 +4,7 @@
 
 layout: home
 ---
-<span style="color: green; font-weight: bold;">Inequality. Policy Transmission. Functional Data. Semi-structural Time Series. Bayesian Statistics. Non-parametric Statistics.</span> 
+<span style="color: green; font-weight: bold;">Inequality. Functional Data. Semi-structural Time Series. Bayesian and Non-parametric Statistics.</span> 
 
   The above are both interesting topics and tools that I've had the pleasure of working with these past few years at UniBonn.
 

@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Luis Calderon
+title: <span style="color: blue; font-weight: bold;"> Luis Calderon </span> 
 email: luis.calderon@uni-bonn.de
 description: >- # this means to ignore newlines until "baseurl:"
 
