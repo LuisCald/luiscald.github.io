@@ -39,11 +39,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  luiscald
 
-nav:
-  - title: "About"
-    url: "/about"
-  - title: "Projects"
-    url: "/projects"
+# nav:
+#   - title: "About"
+#     url: "/about"
+#   - title: "Projects"
+#     url: "/projects"
 
 # Build settings
 theme: minima
