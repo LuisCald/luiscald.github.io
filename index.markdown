@@ -39,10 +39,10 @@
         <div class="home"><p><span style="color: green; font-weight: bold;">Inequality. Functional Data. Semi-structural Time Series. Bayesian and Non-parametric Statistics.</span></p> -->
 
 <p>Hello, and thank you for visiting! I am a 5th year PhD candidate in economics from the University of Bonn, specializing in macroeconomics.</p> 
-<p>My primary interests emphasizes the role of household hetereogeneity for monetary and fiscal policy and macroeconomic dynamics. For this, I draw from an extensive tool kit that spans bayesian econometrics, functional data, and semi-structural time series models to fully structural approaches and my years of experience in handling all kinds of data. 
+<p>My primary interests emphasizes the role of household hetereogeneity for monetary and fiscal policy and macroeconomic dynamics. For this, I draw from an extensive tool kit that spans bayesian econometrics, functional data analysis, and semi-structural time series models to fully structural approaches.
   Secondary interests are in role of monetary pass-through of bank rates for consumption dynamics and wealth inequality of households. </p>
 
-  <p>I hold a Master’s degree in Economics and Economic Research and Bachelor’s degrees in Economics and Finance. At the University of Bonn, I am currently under the supervision of Christian Bayer, Moritz Kuhn and Farzad Saidi.</p>
+  <p>I hold a Master’s degree in Economic Research from Bonn and Bachelor’s degrees in Economics and Finance from Florida International University (Miami native). At the University of Bonn, I am currently under the supervision of Christian Bayer, Moritz Kuhn and Farzad Saidi.</p>
 
 <p>Feel free to check back. Will post some cool stuff soon!</p>
 
