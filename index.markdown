@@ -38,11 +38,11 @@
       <!-- <div class="wrapper">
         <div class="home"><p><span style="color: green; font-weight: bold;">Inequality. Functional Data. Semi-structural Time Series. Bayesian and Non-parametric Statistics.</span></p> -->
 
-<p>Hello, and thank you for visiting! I am a 5th year PhD candidate in economics from the University of Bonn, specializing in macroeconomics.</p> 
-<p>My primary interests emphasizes the role of household hetereogeneity for monetary and fiscal policy and macroeconomic dynamics. For this, I draw from an extensive tool kit that spans bayesian econometrics, functional data analysis, and semi-structural time series models to fully structural approaches.
+<p>Hello, and thank you for visiting! I am a 5th year PhD candidate in economics from the <b>University of Bonn</b>, specializing in macroeconomics.</p> 
+<p>My primary interests emphasizes the role of <b>household hetereogeneity</b> for monetary and fiscal policy and macroeconomic dynamics. For this, I draw from an extensive tool kit that spans <b>bayesian econometrics, functional data analysis, and semi-structural time series</b> models to fully structural approaches.
   Secondary interests are in role of monetary pass-through of bank rates for consumption dynamics and wealth inequality of households. </p>
 
-  <p>I hold a Master’s degree in Economic Research from Bonn and Bachelor’s degrees in Economics and Finance from Florida International University (Miami native). At the University of Bonn, I am currently under the supervision of Christian Bayer, Moritz Kuhn and Farzad Saidi.</p>
+  <p>I hold a Master’s degree in Economic Research from Bonn and Bachelor’s degrees in Economics and Finance from Florida International University (<b>Miami native</b>). At the University of Bonn, I am currently under the supervision of Christian Bayer, Moritz Kuhn and Farzad Saidi.</p>
 
 <p>Feel free to check back. Will post some cool stuff soon!</p>
 
@@ -85,7 +85,7 @@
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+        <p>-</p>
       </div>
     </div>
 
