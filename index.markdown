@@ -47,7 +47,7 @@
 
 <p>Feel free to check back. Will post some cool stuff soon!</p>
 
-<h2 class="post-list-heading">Posts</h2>
+<!-- <h2 class="post-list-heading">Posts</h2>
     <ul class="post-list"><li><span class="post-meta">Jun 23, 2024</span>
         <h3>
           <a class="post-link" href="/learning/2024/06/23/welcome-to-jekyll.html">
@@ -60,17 +60,17 @@
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>
 
-  <div class="wrapper">
+  <div class="wrapper"> -->
 
-    <h2 class="footer-heading">Luis Calderon</h2>
+  <h2 class="footer-heading">Luis Calderon</h2>
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Luis Calderon</li><li><a class="u-email" href="mailto:luis.calderon@uni-bonn.de">luis.calderon@uni-bonn.de</a></li></ul>
-      </div>
+  <div class="footer-col-wrapper">
+    <div class="footer-col footer-col-1">
+      <ul class="contact-list">
+        <li class="p-name">Luis Calderon</li><li><a class="u-email" href="mailto:luis.calderon@uni-bonn.de">luis.calderon@uni-bonn.de</a></li></ul>
+    </div>
 
-<div class="footer-col footer-col-2">
+<!-- <div class="footer-col footer-col-2">
   <ul class="social-media-list">
     <li>
       <a href="https://github.com/LuisCald">
@@ -82,12 +82,12 @@
     </li>
   </ul>
 </div>
-</div>
+</div> -->
 
-      <div class="footer-col footer-col-3">
-        <p>-</p>
-      </div>
-    </div>
+  <div class="footer-col footer-col-3">
+    <p>-</p>
+  </div>
+</div>
 
   </div>
 
