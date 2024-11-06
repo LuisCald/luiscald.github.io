@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+  <!-- <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -32,7 +32,7 @@
         </label>
 
         <div class="trigger"><a class="page-link" href="/projects/">projects</a><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
+      </nav></div> -->
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
