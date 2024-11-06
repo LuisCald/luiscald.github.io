@@ -11,7 +11,7 @@ layout: home
   The purpose of these pursuits has been to shed meaningful insights on inequality along the business cycle, extracting as much information from the universe of data out there, while being 
   fluid in my approaches.
 
-  In August, I plan to attend the Dynamic Structural Econometrics (DSE) Summer School, where I can further expand my arsenal.
+  In August, I plan to attend the Dynamic Structural Econometrics (DSE) Summer School, where I can develop my skills a bit further.
 
   Feel free to check back. Will post some cool stuff soon!
 
