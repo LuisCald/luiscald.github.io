@@ -40,9 +40,9 @@
 
 <p>Hello, and thank you for visiting! I am a 5th year PhD candidate in economics from the <b>University of Bonn</b>, specializing in macroeconomics.</p> 
 <p>My primary interests emphasizes the role of <b>household hetereogeneity</b> for monetary and fiscal policy and macroeconomic dynamics. For this, I draw from an extensive tool kit that spans <b>bayesian econometrics, functional data analysis, and semi-structural time series</b> models to fully structural approaches.</p>
-  <p>Secondary interests are in role of monetary pass-through of bank rates for consumption dynamics and wealth inequality of households. </p>
+  <p>Secondary interests are in role of banking in shaping macroeconomic dynamics and inequality. </p>
 
-  <p>I hold a Master’s degree in Economic Research from Bonn and Bachelor’s degrees in Economics and Finance from Florida International University (<b>Miami native</b>).</p> 
+  <p>I hold a Master’s degree in Economic Research from Bonn and Bachelor’s degrees in Economics and Finance from Florida International University in Miami, FL.</p> 
   <p>At the University of Bonn, I am currently under the supervision of Christian Bayer, Moritz Kuhn and Farzad Saidi.</p>
 
 <p>Feel free to check back. Will post some cool stuff soon!</p>
@@ -62,7 +62,7 @@
 
   <div class="wrapper"> -->
 
-  <h2 class="footer-heading">Luis Calderon</h2>
+  <h2 class="footer-heading">Contact</h2>
 
   <div class="footer-col-wrapper">
     <div class="footer-col footer-col-1">
