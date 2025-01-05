@@ -84,7 +84,7 @@
 </div>
 </div> -->
 
-  <div class="footer-col footer-col-3">
+  <!-- <div class="footer-col footer-col-3">
     <p>-</p>
   </div>
 </div>
@@ -94,5 +94,5 @@
 </footer>
 </body>
 
-</html>
+</html> -->
 

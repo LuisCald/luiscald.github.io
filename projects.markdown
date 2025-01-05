@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "projects"
+title: "Research"
 permalink: /projects/
 ---
 
-# Projects
+# Research
 
 
 
@@ -14,6 +14,12 @@ permalink: /projects/
 <ul>
   <li>
     <strong><a href="project1.pdf" style="color: green;">Distributional Dynamics</a></strong>
+    <p style="color: gray; font-size: 0.9em; margin-top: 5px;">This project explores …</p>
+  </li>
+</ul>
+<ul>
+  <li>
+    <strong><a href="project1.pdf" style="color: green;">Distributional Counterfactuals</a></strong>
     <p style="color: gray; font-size: 0.9em; margin-top: 5px;">This project explores …</p>
   </li>
 </ul>
