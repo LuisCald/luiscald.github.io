@@ -2,7 +2,7 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  background-color: #111;
+  background-color: #111111f5;
 }
 
 .tile-container {
@@ -13,6 +13,7 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  z-index: -1; /* Place behind other content */
 }
 
 .tile {
