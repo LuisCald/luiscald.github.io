@@ -1,7 +1,3 @@
-<head>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
 ---
 layout: default
 title: "Research"
@@ -10,6 +6,9 @@ permalink: /projects/
 
 # Research
 
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
 
 <!-- - **[Project 1](project1.pdf)**: This project explores ...
