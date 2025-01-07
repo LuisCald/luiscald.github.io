@@ -19,7 +19,9 @@
 {"@context":"https://schema.org","@type":"WebSite","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Luis Calderon","name":"Luis Calderon","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Luis Calderon" /></head>
+<link rel="stylesheet" href="/styles.css">
 <body><header class="site-header" role="banner">
+<div class="tile-container"></div>
 
   <!-- <div class="wrapper"><a class="site-title" rel="author" href="/">Luis Calderon</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -54,30 +56,11 @@
       <ul class="contact-list">
         <li class="p-name">Luis Calderon</li><li><a class="u-email" href="mailto:luis.calderon@uni-bonn.de">luis.calderon@uni-bonn.de</a></li></ul>
     </div>
-
-<!-- <div class="footer-col footer-col-2">
-  <ul class="social-media-list">
-    <li>
-      <a href="https://github.com/LuisCald">
-        <svg class="svg-icon">
-          <use xlink:href="/assets/minima-social-icons.svg#github"></use>
-        </svg>
-        <span class="username">jekyll</span>
-      </a>
-    </li>
-  </ul>
-</div>
-</div> -->
-
-  <!-- <div class="footer-col footer-col-3">
-    <p>-</p>
-  </div>
-</div>
-
   </div>
 
-</footer>
+<script src="/script.js"></script>
+
 </body>
 
-</html> -->
+</html>
 

@@ -25,7 +25,7 @@ permalink: /projects/
   }
 
   a {
-    color: green; /* Default link color */
+    color: blue; /* Default link color */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s; /* Smooth transition for link color */
   }
