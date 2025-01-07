@@ -14,7 +14,7 @@ permalink: /projects/
   }
 
   li {
-    margin-bottom: 15px; /* Add spacing between list items */
+    margin-bottom: 10px; /* Add spacing between list items */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
     padding: 10px; /* Add padding for better hover visibility */
     border-radius: 5px; /* Optional: rounded corners */
