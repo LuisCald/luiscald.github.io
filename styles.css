@@ -83,7 +83,7 @@ header, .site-header {
   background-color: #f0f0f0; /* Default background color */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  transition: background-color 0.3s, color 0.1s; /* Smooth transition for hover effect */
 }
 
 .project-item:hover {
