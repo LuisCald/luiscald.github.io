@@ -103,3 +103,13 @@ header {
   background-color: #d1e7fd; /* Highlight background color */
   color: #003366; /* Highlight text color */
 }
+
+.page-link {
+  color: white; /* Make the link text white */
+  text-decoration: none; /* Remove the underline */
+  font-weight: bold; /* Optional: Make the text bold */
+}
+
+.page-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
