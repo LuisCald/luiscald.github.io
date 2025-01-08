@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
   <header class="site-header" role="banner">
     <div class="wrapper">
       <a class="site-title" rel="author" href="/">Luis Calderon</a>
@@ -32,6 +31,7 @@
       </nav>
     </div>
   </header>
+<body>
 
   <div class="tile-container"></div>
 
