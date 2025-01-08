@@ -48,7 +48,7 @@
   <p>At the University of Bonn, I am currently under the supervision of Christian Bayer, Moritz Kuhn and Farzad Saidi.</p>
 
 <p>Feel free to check back. Will post some cool stuff soon!</p>
-
+<script src="/script.js"></script>
   <h2 class="footer-heading">Contact</h2>
 
   <div class="footer-col-wrapper">
@@ -58,9 +58,7 @@
     </div>
   </div>
 
-<script src="/script.js"></script>
+<!-- </body>
 
-</body>
-
-</html>
+</html> -->
 

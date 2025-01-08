@@ -2,8 +2,8 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  background-color: #111111f5;
-  color: white; /* Ensure text is visible */
+  background-color: white; /* Change background to white */
+  color: black; /* Adjust text color to be readable */
 }
 
 .tile-container {
@@ -52,11 +52,16 @@ body {
     z-index: 1;
 }
 
+
 .page-content {
   position: relative;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  padding: 20px; /* Add spacing */
-  border-radius: 10px; /* Optional: for a modern look */
-  position: relative;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
   z-index: 1;
+  pointer-events: none; /* Allow pointer events to pass through */
+}
+
+.page-content * {
+  pointer-events: auto; /* Re-enable pointer events for child elements */
 }
