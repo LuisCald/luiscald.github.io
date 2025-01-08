@@ -46,6 +46,7 @@ header {
   background: white; /* rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
   padding: 10px;
   color: white; /* Ensure text is white */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better separation */
 }
 
 .site-title {
@@ -74,6 +75,7 @@ header {
 /* Page Content */
 .page-content {
   position: relative;
+  margin-top: 80px; /* Add space between header and body */
   background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
   padding: 20px;
   border-radius: 10px; /* Rounded corners for aesthetics */
