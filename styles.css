@@ -53,6 +53,10 @@ body {
     z-index: 1;
 }
 
+header, .site-header, .site-header a, .site-title {
+  color: white; /* Force header text to white */
+}
+
 
 .page-content {
   position: relative;
