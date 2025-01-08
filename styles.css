@@ -57,6 +57,13 @@ header, .site-header, .site-header a, .site-title {
   color: white; /* Force header text to white */
 }
 
+header, .site-header {
+  position: relative;
+  z-index: 2; /* Ensure header is above tiles */
+  padding: 10px;
+}
+
+
 
 .page-content {
   position: relative;
