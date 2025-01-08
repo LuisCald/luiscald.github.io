@@ -30,7 +30,7 @@ body {
 /* Header and Navigation */
 header {
   position: relative;
-  z-index: 1; /* Base z-index for the generic header */
+  z-index: 3; /* Base z-index for the generic header */
   padding: 10px;
   background: none; /* Ensure it doesn’t interfere with the .site-header */
   color: inherit; /* Allow color to be inherited from the body or parent */
@@ -53,6 +53,7 @@ header {
   color: white;
   font-weight: bold;
   text-decoration: none; /* No underline by default */
+  z-index: 3;
 }
 
 .site-title:hover {
