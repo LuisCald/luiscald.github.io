@@ -19,12 +19,31 @@ body {
   z-index: -1; /* Place tiles behind all other content */
 }
 
-.tile {
+/* .tile {
   width: 50px;
   height: 50px;
   background: #444;
   border: 1px solid #555;
   transition: transform 0.2s ease, background-color 0.3s ease;
+} */
+
+/* Individual Tiles */
+.tile {
+  width: 50px;
+  height: 50px;
+  background: #444;
+  border: 1px solid #555;
+  animation: moveDown 5s linear infinite; /* Continuous downward movement */
+}
+
+/* Tetris-Like Animation */
+@keyframes moveDown {
+  0% {
+    transform: translateY(0); /* Start at the top */
+  }
+  100% {
+    transform: translateY(100vh); /* Move to the bottom of the viewport */
+  }
 }
 
 /* Header and Navigation */
