@@ -49,6 +49,7 @@ body {
   
   header, main {
     position: relative;
+    color: white; /* Change text color */
     z-index: 1;
 }
 
@@ -72,7 +73,7 @@ body {
 }
 
 .site-header a {
-  color: black; /* Ensure links are visible */
+  color: white; /* Ensure links are visible */
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make text prominent */
 }
@@ -83,6 +84,6 @@ body {
 
 .site-title {
   font-size: 24px;
-  color: black;
+  color: white;
   font-weight: bold;
 }

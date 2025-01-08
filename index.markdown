@@ -36,7 +36,7 @@
       <div class="trigger">
         <a class="page-link" href="/about/">About</a>
         <a class="page-link" href="/cv/">CV</a>
-        <a class="page-link" href="/research/">Research</a>
+        <a class="page-link" href="/projects/">Research</a>
       </div>
     </nav>
   </div>
