@@ -92,13 +92,20 @@ header, .site-header {
 
 .site-header a:hover {
   color: white; /* Ensure links are visible */
+  text-decoration: underline; /* Underline on hover */
   /* color: #007acc; Optional: Add hover effect */
+}
+
+.site-title:hover {
+  text-decoration: underline; /* Underline on hover */
 }
 
 .site-title {
   font-size: 24px;
   color: white;
   font-weight: bold;
+  text-decoration: none; /* No underline by default */
+
 }
 
 header .site-nav a {
