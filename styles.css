@@ -3,10 +3,11 @@ body {
   height: 100vh;
   overflow: hidden;
   background-color: #111111f5;
+  color: white; /* Ensure text is visible */
 }
 
 .tile-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -49,4 +50,13 @@ body {
   header, main {
     position: relative;
     z-index: 1;
+}
+
+.page-content {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 20px; /* Add spacing */
+  border-radius: 10px; /* Optional: for a modern look */
+  position: relative;
+  z-index: 1;
 }

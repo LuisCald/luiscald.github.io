@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector('.tile-container');
     
-    // Dynamically create tiles based on viewport size
+    // Dynamically create tiles
     const rows = Math.ceil(window.innerHeight / 50);
     const cols = Math.ceil(window.innerWidth / 50);
 
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tile.classList.add('tile');
         container.appendChild(tile);
 
-        // Add hover effect
+        // Hover effects
         tile.addEventListener('mousemove', () => {
             tile.style.transform = `scale(1.2)`;
             tile.style.backgroundColor = `#777`;
