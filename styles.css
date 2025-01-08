@@ -33,7 +33,7 @@ body {
   height: 50px;
   background: #444;
   border: 1px solid #555;
-  animation: moveDown 5s linear infinite; /* Continuous downward movement */
+  animation: moveDown 10s linear infinite; /* Continuous downward movement */
 }
 
 /* Tetris-Like Animation */
@@ -62,7 +62,7 @@ footer {
   width: 100%;
   padding: 10px;
   background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
-  color: white; /* Ensure text is white */
+  color: black; /* Ensure text is white */
   text-align: center;
 }
 
