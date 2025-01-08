@@ -43,7 +43,7 @@
 </header>
 
 <div class="tile-container"></div>
-</header>
+<!-- </header> -->
 <main class="page-content" aria-label="Content">
 <p>Hello, and thank you for visiting! I am a 5th year PhD candidate in economics from the <b>University of Bonn</b>, specializing in macroeconomics.</p> 
 <p>My primary interests emphasizes the role of <b>household hetereogeneity</b> for monetary and fiscal policy and macroeconomic dynamics. For this, I draw from an extensive tool kit that spans <b>bayesian econometrics, functional data analysis, and semi-structural time series</b> models to fully structural approaches.</p>
