@@ -65,3 +65,24 @@ body {
 .page-content * {
   pointer-events: auto; /* Re-enable pointer events for child elements */
 }
+
+.site-header {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header a {
+  color: black; /* Ensure links are visible */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make text prominent */
+}
+
+.site-header a:hover {
+  color: #007acc; /* Optional: Add hover effect */
+}
+
+.site-title {
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
+}
