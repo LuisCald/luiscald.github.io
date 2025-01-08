@@ -1,11 +1,13 @@
+/* General Reset */
 body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  background-color: white; /* Change background to white */
-  color: black; /* Adjust text color to be readable */
+  background-color: white; /* Background color for the page */
+  color: black; /* Default text color */
 }
 
+/* Tile Background */
 .tile-container {
   position: fixed;
   top: 0;
@@ -14,7 +16,7 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-  z-index: -1; /* Place behind other content */
+  z-index: -1; /* Place behind all other content */
 }
 
 .tile {
@@ -25,52 +27,41 @@ body {
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-
-/* Styling the list */
-.project-list {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0;
-    margin: 0;
-  }
-  
-  .project-item {
-    padding: 10px 15px;
-    margin: 5px 0;
-    background-color: #f0f0f0; /* Default background color */
-    border-radius: 5px; /* Optional: rounded corners */
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-  }
-  
-  .project-item:hover {
-    background-color: #d1e7fd; /* Highlight color */
-    color: #003366; /* Text color on hover */
-  }
-  
-  header, main {
-    position: relative;
-    color: white; /* Change text color */
-    z-index: 1;
-}
-
-header, .site-header, .site-header a, .site-title {
-  color: white; /* Force header text to white */
-  z-index: 2; /* Ensure header is above tiles */
-}
-
+/* Header and Navigation */
 header, .site-header {
   position: relative;
   z-index: 2; /* Ensure header is above tiles */
   padding: 10px;
+  color: white; /* Default header text color */
 }
 
+.site-title {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none; /* No underline by default */
+}
 
+.site-title:hover {
+  text-decoration: underline; /* Underline on hover */
+}
 
+.site-header a {
+  color: white; /* Ensure links are visible */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make links stand out */
+}
+
+.site-header a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Page Content */
 .page-content {
   position: relative;
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 10px; /* Rounded corners for aesthetics */
   z-index: 1;
   pointer-events: none; /* Allow pointer events to pass through */
 }
@@ -79,36 +70,23 @@ header, .site-header {
   pointer-events: auto; /* Re-enable pointer events for child elements */
 }
 
-/* .site-header {
-  position: relative;
-  z-index: 1;
-} */
-
-.site-header a {
-  color: white; /* Ensure links are visible */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Make text prominent */
+/* Project List Styling */
+.project-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
 }
 
-.site-header a:hover {
-  color: white; /* Ensure links are visible */
-  text-decoration: underline; /* Underline on hover */
-  /* color: #007acc; Optional: Add hover effect */
+.project-item {
+  padding: 10px 15px;
+  margin: 5px 0;
+  background-color: #f0f0f0; /* Default background color */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
 }
 
-.site-title:hover {
-  text-decoration: underline; /* Underline on hover */
+.project-item:hover {
+  background-color: #d1e7fd; /* Highlight background color */
+  color: #003366; /* Highlight text color */
 }
-
-.site-title {
-  font-size: 24px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none; /* No underline by default */
-
-}
-
-header .site-nav a {
-  color: white !important; /* Force link color to white */
-}
-
