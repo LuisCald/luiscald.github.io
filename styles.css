@@ -55,6 +55,7 @@ body {
 
 header, .site-header, .site-header a, .site-title {
   color: white; /* Force header text to white */
+  z-index: 2; /* Ensure header is above tiles */
 }
 
 header, .site-header {
@@ -78,10 +79,10 @@ header, .site-header {
   pointer-events: auto; /* Re-enable pointer events for child elements */
 }
 
-.site-header {
+/* .site-header {
   position: relative;
   z-index: 1;
-}
+} */
 
 .site-header a {
   color: white; /* Ensure links are visible */
