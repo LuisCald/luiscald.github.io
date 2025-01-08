@@ -43,7 +43,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 3; /* Ensure it stays above tiles and main content */
-  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
+  background: white; /* rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
   padding: 10px;
   color: white; /* Ensure text is white */
 }
