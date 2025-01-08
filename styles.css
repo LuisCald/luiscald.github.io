@@ -66,6 +66,12 @@ footer {
   text-align: center;
 }
 
+footer-heading {
+color: white;
+font-weight: bold;
+
+}
+
 /* Site-Specific Header Styles */
 .site-header {
   position: fixed; /* Fix it to the top of the page */

@@ -49,7 +49,6 @@
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Luis Calderon</li>
           <li><a class="u-email" href="mailto:luis.calderon@uni-bonn.de">luis.calderon@uni-bonn.de</a></li>
         </ul>
       </div>
