@@ -28,11 +28,24 @@ body {
 }
 
 /* Header and Navigation */
-header, .site-header {
+header {
   position: relative;
-  z-index: 2; /* Ensure header is above tiles */
+  z-index: 1; /* Base z-index for the generic header */
   padding: 10px;
-  color: white; /* Default header text color */
+  background: none; /* Ensure it doesn’t interfere with the .site-header */
+  color: inherit; /* Allow color to be inherited from the body or parent */
+}
+
+/* Site-Specific Header Styles */
+.site-header {
+  position: fixed; /* Fix it to the top of the page */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3; /* Keep it above tiles and other content */
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
+  padding: 10px;
+  color: white; /* Ensure text is white */
 }
 
 .site-title {
