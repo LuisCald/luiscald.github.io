@@ -91,3 +91,8 @@ header, .site-header, .site-header a, .site-title {
   color: white;
   font-weight: bold;
 }
+
+header .site-nav a {
+  color: white !important; /* Force link color to white */
+}
+
