@@ -43,9 +43,9 @@ header {
   left: 0;
   width: 100%;
   z-index: 3; /* Keep it above tiles and other content */
-  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
+  background: rgba(0, 0, 0, 0.047); /* Semi-transparent background for readability */
   padding: 10px;
-  color: white; /* Ensure text is white */
+  color: black; /* Ensure text is white */
 }
 
 .site-title {
@@ -61,7 +61,6 @@ header {
 
 .site-header a {
   color: white; /* Ensure links are visible */
-  text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make links stand out */
 }
 
