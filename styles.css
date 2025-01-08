@@ -45,7 +45,7 @@ header {
   z-index: 3; /* Keep it above tiles and other content */
   background: rgba(0, 0, 0, 0.047); /* Semi-transparent background for readability */
   padding: 10px;
-  color: black; /* Ensure text is white */
+  color: white; /* Ensure text is white */
 }
 
 .site-title {
