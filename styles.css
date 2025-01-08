@@ -33,7 +33,7 @@ header {
   z-index: 1; /* Base z-index for the generic header */
   padding: 10px;
   background: none;
-  color: inherit;
+  color: white;
 }
 
 /* Site-Specific Header Styles */
