@@ -91,7 +91,8 @@ header, .site-header {
 }
 
 .site-header a:hover {
-  color: #007acc; /* Optional: Add hover effect */
+  color: white; /* Ensure links are visible */
+  /* color: #007acc; Optional: Add hover effect */
 }
 
 .site-title {
