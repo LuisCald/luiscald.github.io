@@ -96,4 +96,5 @@ function toggleMenu() {
   navLinks.classList.toggle("hidden");
   navLinks.classList.toggle("visible");
 }
+
   

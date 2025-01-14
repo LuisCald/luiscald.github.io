@@ -19,19 +19,21 @@
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
-  <header class="site-header" role="banner">
-    <div class="wrapper">
-      <a class="site-title" rel="author" href="/">Luis Calderon</a>
-      <nav class="site-nav">
-        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-        <ul id="nav-links" class="hidden">
-          <li><a class="page-link" href="/about/">About</a></li>
-          <li><a class="page-link" href="/cv/">CV</a></li>
-          <li><a class="page-link" href="/projects/">Research</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Luis Calderon</a>
+    <nav class="site-nav">
+      <!-- Hamburger Menu -->
+      <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+      <!-- Navigation Links -->
+      <ul id="nav-links" class="nav-links">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/cv/">CV</a></li>
+        <li><a class="page-link" href="/projects/">Research</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 <body>
 
   <div class="tile-container"></div>

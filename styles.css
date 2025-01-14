@@ -194,50 +194,55 @@ font-weight: bold;
 }
 
 
+/* Navigation Links Styling */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Inline layout for larger screens */
+  gap: 15px; /* Spacing between links */
+}
+
+.nav-links.hidden {
+  display: none; /* Hidden by default for mobile */
+}
+
+.nav-links.visible {
+  display: block; /* Show as a block for mobile */
+  flex-direction: column; /* Stack links vertically on mobile */
+}
+
 /* Hamburger Menu Styling */
 .hamburger-menu {
-  display: none; /* Hidden by default (only visible on mobile) */
+  display: none; /* Hidden by default */
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
   color: white; /* Match header text */
 }
 
-/* Navigation Links Styling */
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 15px; /* Spacing between links */
-}
-
-.nav-links li {
-  margin: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white; /* Match header text */
-  font-weight: bold;
-}
-
-.nav-links.hidden {
-  display: none; /* Initially hide links for mobile */
-}
-
-.nav-links.visible {
-  display: block; /* Show links when toggled */
-  flex-direction: column; /* Stack links vertically on mobile */
-}
-
-/* Media Query for Mobile */
+/* Show Hamburger Menu and Hide Inline Nav on Mobile */
 @media (max-width: 768px) {
   .hamburger-menu {
-    display: block; /* Show hamburger menu on smaller screens */
+    display: block; /* Show hamburger menu */
   }
 
   .nav-links {
-    display: none; /* Hide links initially */
+    display: none; /* Hide inline navigation by default */
+  }
+
+  .nav-links.visible {
+    display: block; /* Show stacked links when toggled */
+  }
+}
+
+/* Show Inline Navigation for Larger Screens */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex; /* Show inline navigation for desktops */
+  }
+
+  .hamburger-menu {
+    display: none; /* Hide hamburger menu for larger screens */
   }
 }
