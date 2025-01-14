@@ -9,7 +9,7 @@ body {
 
 /* Tile Background */
 .tile-container {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -29,6 +29,7 @@ body {
 
 /* Individual Tiles */
 .tile {
+  aspect-ratio: 1; /* Keep square shape */
   width: 50px;
   height: 50px;
   background: #444;
@@ -153,4 +154,90 @@ font-weight: bold;
 
 .page-link:hover {
   text-decoration: underline; /* Add underline on hover */
+}
+
+/* For devices with max width of 768px (tablets and smaller) */
+@media (max-width: 768px) {
+  .site-header {
+    font-size: 18px; /* Smaller header text */
+    padding: 10px;
+  }
+
+  .tile-container {
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr)); /* Smaller tiles */
+  }
+
+  .page-content {
+    padding: 10px; /* Reduce padding for content */
+  }
+}
+
+/* For devices with max width of 480px (mobile phones) */
+@media (max-width: 480px) {
+  .site-header {
+    font-size: 16px; /* Even smaller header text */
+    padding: 8px;
+  }
+
+  .site-title {
+    font-size: 20px; /* Adjust title size */
+  }
+
+  .tile-container {
+    grid-template-columns: repeat(auto-fit, minmax(15px, 1fr)); /* Smaller tiles for mobile */
+  }
+
+  .page-content {
+    padding: 5px; /* Reduce padding even further */
+    font-size: 14px; /* Smaller content text */
+  }
+}
+
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+  display: none; /* Hidden by default (only visible on mobile) */
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  color: white; /* Match header text */
+}
+
+/* Navigation Links Styling */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px; /* Spacing between links */
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white; /* Match header text */
+  font-weight: bold;
+}
+
+.nav-links.hidden {
+  display: none; /* Initially hide links for mobile */
+}
+
+.nav-links.visible {
+  display: block; /* Show links when toggled */
+  flex-direction: column; /* Stack links vertically on mobile */
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block; /* Show hamburger menu on smaller screens */
+  }
+
+  .nav-links {
+    display: none; /* Hide links initially */
+  }
 }

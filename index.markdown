@@ -23,11 +23,12 @@
     <div class="wrapper">
       <a class="site-title" rel="author" href="/">Luis Calderon</a>
       <nav class="site-nav">
-        <div class="trigger">
-          <a class="page-link" href="/about/">About</a>
-          <a class="page-link" href="/cv/">CV</a>
-          <a class="page-link" href="/projects/">Research</a>
-        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        <ul id="nav-links" class="hidden">
+          <li><a class="page-link" href="/about/">About</a></li>
+          <li><a class="page-link" href="/cv/">CV</a></li>
+          <li><a class="page-link" href="/projects/">Research</a></li>
+        </ul>
       </nav>
     </div>
   </header>

@@ -91,3 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
+function toggleMenu() {
+  const navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("hidden");
+  navLinks.classList.toggle("visible");
+}
+  
