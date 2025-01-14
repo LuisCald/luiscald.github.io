@@ -2,9 +2,15 @@
 body {
   margin: 0;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: white; /* Background color for the page */
   color: black; /* Default text color */
+  overflow: auto; /* Allow scrolling */
+}
+
+html {
+  height: 100%; /* Ensure the full page height is used */
+  overflow: hidden; /* Prevent the tiles from scrolling */
 }
 
 /* Tile Background */
@@ -17,6 +23,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   z-index: -1; /* Place tiles behind all other content */
+  pointer-events: none; /* Prevent interaction with tiles */
 }
 
 /* .tile {
@@ -116,7 +123,7 @@ font-weight: bold;
   background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
   padding: 20px;
   border-radius: 10px; /* Rounded corners for aesthetics */
-  z-index: 2; /* Ensure content is above tiles but below the header */
+  z-index: 1; /* Ensure content is above tiles but below the header */
   pointer-events: none; /* Allow pointer events to pass through */
 }
 

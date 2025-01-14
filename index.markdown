@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
+  <div class="tile-container"></div>
 <header class="site-header" role="banner">
   <div class="wrapper">
     <a class="site-title" rel="author" href="/">Luis Calderon</a>
@@ -35,8 +36,6 @@
   </div>
 </header>
 <body>
-
-  <div class="tile-container"></div>
 
   <main class="page-content" aria-label="Content">
     <p>Hello, and thank you for visiting! I am a 5th year PhD candidate in economics from the <b>University of Bonn</b>, specializing in macroeconomics.</p>
