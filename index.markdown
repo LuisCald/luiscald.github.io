@@ -18,6 +18,14 @@
   <meta property="twitter:title" content="Luis Calderon" />
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/styles.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.11.0/chess.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"><script>
+
+<div id="board" style="width: 400px"></div>
+<button id="reset-btn">Reset Board</button>
+
 </head>
   <div class="tile-container"></div>
 <header class="site-header" role="banner">

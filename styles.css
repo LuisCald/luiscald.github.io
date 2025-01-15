@@ -253,3 +253,39 @@ font-weight: bold;
     display: none; /* Hide hamburger menu for larger screens */
   }
 }
+
+/* Chess Page Specific Styles */
+#board {
+  margin: 20px auto;
+}
+
+#reset-btn, #prev-move, #next-move {
+  display: inline-block;
+  margin: 10px;
+  padding: 8px 15px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#reset-btn:hover, #prev-move:hover, #next-move:hover {
+  background-color: #005a99;
+}
+
+#games ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#games ul li {
+  margin: 5px 0;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #007acc;
+}
+
+#games ul li:hover {
+  color: #005a99;
+}
