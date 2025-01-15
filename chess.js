@@ -1,18 +1,23 @@
+import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+import { getDatabase, ref, onValue, push, set } from "firebase/database";
+
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize Firebase
     const firebaseConfig = {
-      apiKey: "AIzaSyCteEhy_uilhR1-58V0UnxX31dtTKvZrcQ",
-      authDomain: "chess-with-luis.firebaseapp.com",
-      databaseURL: "https://chess-with-luis-default-rtdb.firebaseio.com",
-      projectId: "chess-with-luis",
-      storageBucket: "chess-with-luis.appspot.com",
-      messagingSenderId: "183522721938",
-      appId: "1:183522721938:web:9c449c35d194898e42264b",
-      measurementId: "G-NRZQGM0XGM"
-    };
+        apiKey: "AIzaSyCteEhy_uilhR1-58V0UnxX31dtTKvZrcQ",
+        authDomain: "chess-with-luis.firebaseapp.com",
+        databaseURL: "https://chess-with-luis-default-rtdb.firebaseio.com",
+        projectId: "chess-with-luis",
+        storageBucket: "chess-with-luis.firebasestorage.app",
+        messagingSenderId: "183522721938",
+        appId: "1:183522721938:web:9c449c35d194898e42264b",
+        measurementId: "G-NRZQGM0XGM"
+      };
   
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
+      const app = initializeApp(firebaseConfig);
+    //   const analytics = getAnalytics(app);
+      const db = getDatabase(app);
   
     const board = Chessboard('board', {
       draggable: true,
