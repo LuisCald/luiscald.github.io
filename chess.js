@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Initialize Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyCteEhy_uilhR1-58V0UnxX31dtTKvZrcQ",
       authDomain: "chess-with-luis.firebaseapp.com",
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const game = new Chess();
     let currentGameId = null;
   
+    // Load active games
     db.ref('games').on('value', (snapshot) => {
       const games = snapshot.val();
       displayGames(games);
@@ -54,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     function updateGame(move) {
-      const playerName = prompt("Enter your name:", "New Player") || "Anonymous";
       if (!currentGameId) {
+        const playerName = prompt("Enter your name:", "New Player") || "Anonymous";
         const newGameRef = db.ref('games').push();
         currentGameId = newGameRef.key;
         newGameRef.set({
@@ -73,32 +75,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   
+    // New Game Button Functionality
+    document.getElementById('new-game-btn').addEventListener('click', () => {
+      // Reset the board
+      board.start();
+      game.reset();
+  
+      // Create a new game in Firebase
+      const playerName = prompt("Enter your name:", "New Player") || "Anonymous";
+      const newGameRef = db.ref('games').push();
+      currentGameId = newGameRef.key;
+      newGameRef.set({
+        player: playerName,
+        moves: [],
+        lastMove: null
+      });
+    });
+  
     document.getElementById('reset-btn').addEventListener('click', () => {
       board.start();
       game.reset();
-    });
-  
-    document.getElementById('prev-move').addEventListener('click', () => {
-      if (currentGameId) {
-        const gameHistory = game.history();
-        if (gameHistory.length > 0) {
-          game.undo();
-          board.position(game.fen());
-        }
-      }
-    });
-  
-    document.getElementById('next-move').addEventListener('click', () => {
-      if (currentGameId) {
-        db.ref(`games/${currentGameId}`).once('value').then(snapshot => {
-          const gameData = snapshot.val();
-          const gameHistory = game.history();
-          if (gameHistory.length < gameData.moves.length) {
-            game.move(gameData.moves[gameHistory.length]);
-            board.position(game.fen());
-          }
-        });
-      }
     });
   });
   
