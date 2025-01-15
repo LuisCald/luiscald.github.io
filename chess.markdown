@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Chess with Luis
+title: "Chess with Luis"
+permalink: /chess/
 ---
-
 
 <main class="page-content">
   <h1>Chess with Luis</h1>
