@@ -10,7 +10,7 @@ body {
 
 .content-container {
   display: flex; /* Align items side by side */
-  align-items: center; 
+  align-items: flex-start; /* Align items at the top */
   gap: 20px; /* Space between the text and image */
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 .profile-photo {
-  width: 30%; /* Make the image responsive */
+  width: 50%; /* Make the image responsive */
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px; /* Optional: Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
@@ -321,6 +321,6 @@ font-weight: bold;
   }
 
   .image-block {
-    max-width: 30%; /* Adjust image width */
+    max-width: 50%; /* Adjust image width */
   }
 }
