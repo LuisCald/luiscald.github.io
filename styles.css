@@ -24,7 +24,7 @@ body {
 }
 
 .profile-photo {
-  width: 100%; /* Make the image responsive */
+  width: 30%; /* Make the image responsive */
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px; /* Optional: Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */

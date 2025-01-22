@@ -55,7 +55,6 @@
       <p>Feel free to check back. Will post some cool stuff soon!</p>
     </div>
 
-    <!-- Image Block -->
     <div class="image-block">
       <img src="/images/profile.jpg" alt="Luis Calderon" class="profile-photo">
     </div>
