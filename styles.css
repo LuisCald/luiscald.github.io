@@ -20,7 +20,7 @@ body {
 
 .image-block {
   flex: 1; /* Take up less space */
-  max-width: 300px; /* Limit image width */
+  max-width: 100px; /* Limit image width */
 }
 
 .profile-photo {
@@ -321,6 +321,6 @@ font-weight: bold;
   }
 
   .image-block {
-    max-width: 80%; /* Adjust image width */
+    max-width: 30%; /* Adjust image width */
   }
 }
