@@ -10,7 +10,7 @@ body {
 
 .content-container {
   display: flex; /* Align items side by side */
-  align-items: flex-start; /* Align items at the top */
+  align-items: center; 
   gap: 20px; /* Space between the text and image */
 }
 
