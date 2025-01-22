@@ -8,6 +8,30 @@ body {
   overflow: auto; /* Allow scrolling */
 }
 
+.content-container {
+  display: flex; /* Align items side by side */
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Space between the text and image */
+}
+
+.text-block {
+  flex: 2; /* Take up more space */
+}
+
+.image-block {
+  flex: 1; /* Take up less space */
+  max-width: 300px; /* Limit image width */
+}
+
+.profile-photo {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
+
+
 html {
   height: 100%; /* Ensure the full page height is used */
   overflow: hidden; /* Prevent the tiles from scrolling */
@@ -288,4 +312,15 @@ font-weight: bold;
 
 #games ul li:hover {
   color: #005a99;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center the content */
+  }
+
+  .image-block {
+    max-width: 80%; /* Adjust image width */
+  }
 }
