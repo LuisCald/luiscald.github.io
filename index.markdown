@@ -36,7 +36,7 @@
         <li><a class="page-link" href="/about/">About</a></li>
         <li><a class="page-link" href="/cv/">CV</a></li>
         <li><a class="page-link" href="/projects/">Research</a></li>
-        <li><a class="page-link" href="/chess/">Chess with Luis</a></li>
+        <!-- <li><a class="page-link" href="/chess/">Chess with Luis</a></li> -->
       </ul>
     </nav>
   </div>

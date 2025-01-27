@@ -65,7 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
       tile.classList.add("tile");
   
       // Assign a random color
-      const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#FFC733"];
+      const colors = [
+        "#000000", // Black
+        "#1A1A1A", // Very Dark Gray
+        "#333333", // Dark Gray
+        "#4D4D4D", // Medium-Dark Gray
+        "#666666", // Medium Gray
+        "#808080", // Neutral Gray
+        "#999999", // Light Gray
+        "#B3B3B3", // Lighter Gray
+        "#CCCCCC", // Very Light Gray
+        "#E6E6E6", // Almost White
+        "#FFFFFF"  // White
+      ];      
       tile.style.background = colors[Math.floor(Math.random() * colors.length)];
   
       // Generate unique position

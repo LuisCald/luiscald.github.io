@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: default
 title: "Chess with Luis"
 permalink: /chess/
@@ -29,8 +29,7 @@ permalink: /chess/
   </div>
 </main>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.11.0/chess.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script> -->
+
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
-<script src="/chess.js"></script>
+<script src="/chess.js"></script> -->
