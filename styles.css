@@ -100,6 +100,7 @@ footer {
   left: 0;
   width: 100%;
   padding: 5px;
+  font-weight: bold;
   background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
   color: white; /* Ensure text is white */
   text-align: left;
