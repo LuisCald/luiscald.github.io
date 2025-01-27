@@ -39,15 +39,15 @@ html {
 
 /* Tile Background */
 .tile-container {
-  /* position: fixed; */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-  z-index: -1; /* Place tiles behind all other content */
-  pointer-events: none; /* Prevent interaction with tiles */
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Adjust tile size */
+  gap: 5px; /* Add spacing between tiles */
+  z-index: -1; /* Place behind other content */
 }
 
 /* .tile {
@@ -60,22 +60,29 @@ html {
 
 /* Individual Tiles */
 .tile {
-  aspect-ratio: 1; /* Keep square shape */
-  width: 50px;
-  height: 50px;
-  background: #444;
-  border: 1px solid #555;
-  animation: moveDown 10s linear infinite; /* Continuous downward movement */
+  width: 100%;
+  height: 60px;
+  background-color: #ADD8E6; /* Default Light Blue */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth animations */
 }
 
 /* Tetris-Like Animation */
-@keyframes moveDown {
+@keyframes moveTile {
   0% {
-    transform: translateY(0); /* Start at the top */
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
   100% {
-    transform: translateY(100vh); /* Move to the bottom of the viewport */
+    transform: translateY(0);
   }
+}
+
+.tile {
+  animation: moveTile 4s ease-in-out infinite; /* Continuous smooth movement */
 }
 
 /* Header and Navigation */
@@ -127,6 +134,11 @@ font-weight: bold;
 
 .site-title:hover {
   text-decoration: underline; /* Underline on hover */
+}
+
+.tile:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  background-color: #FFFACD; /* Change to Light Yellow on hover */
 }
 
 .site-header a {

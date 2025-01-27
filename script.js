@@ -66,17 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
   
       // Assign a random color
       const colors = [
-        "#000000", // Black
-        "#1A1A1A", // Very Dark Gray
-        "#333333", // Dark Gray
-        "#4D4D4D", // Medium-Dark Gray
-        "#666666", // Medium Gray
-        "#808080", // Neutral Gray
-        "#999999", // Light Gray
-        "#B3B3B3", // Lighter Gray
-        "#CCCCCC", // Very Light Gray
-        "#E6E6E6", // Almost White
-        "#FFFFFF"  // White
+        "#ADD8E6", // Light Blue
+        "#FFFACD", // Lemon Chiffon (Light Yellow)
+        "#FFE4E1", // Misty Rose (Light Pink)
+        "#E6E6FA", // Lavender
+        "#F0FFF0", // Honeydew (Soft Green)
+        "#FAFAD2", // Light Goldenrod Yellow
+        "#D3D3D3", // Light Gray
+        "#FFF5EE", // Seashell
+        "#F5F5DC", // Beige
+        "#F0F8FF"  // Alice Blue
       ];      
       tile.style.background = colors[Math.floor(Math.random() * colors.length)];
   
