@@ -24,6 +24,7 @@ body {
   display: flex;
   justify-content: center; /* Center the image inside */
   align-items: center;
+  margin-bottom: 5px; /* Space between image and text */
 }
 
 .profile-photo {
@@ -343,9 +344,10 @@ font-weight: bold;
 }
 
 .photo-credit {
-  font-size: 12px;  /* Small text */
+  font-size: 5px;  /* Small text */
   color: gray;       /* Light gray font */
   text-align: center; /* Centered under the image */
   margin-top: 5px;   /* Small space above */
   font-style: italic; /* Optional: makes it look more professional */
+  display: block;     /* Ensure it's not inline */
 }
