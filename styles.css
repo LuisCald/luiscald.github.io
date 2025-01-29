@@ -19,12 +19,15 @@ body {
 }
 
 .image-block {
-  flex: 1; /* Take up less space */
-  max-width: 100px; /* Limit image width */
+  flex: 1; /* Allow it to grow proportionally */
+  max-width: 300px; /* Increase max width for a larger image */
+  display: flex;
+  justify-content: center; /* Center the image inside */
+  align-items: center;
 }
 
 .profile-photo {
-  width: 100%; /* Make the image responsive */
+  width: 100%; /* Make it responsive within the max-width */
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px; /* Optional: Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
