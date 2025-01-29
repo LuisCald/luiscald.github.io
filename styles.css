@@ -341,3 +341,11 @@ font-weight: bold;
     max-width: 50%; /* Adjust image width */
   }
 }
+
+.photo-credit {
+  font-size: 12px;  /* Small text */
+  color: gray;       /* Light gray font */
+  text-align: center; /* Centered under the image */
+  margin-top: 5px;   /* Small space above */
+  font-style: italic; /* Optional: makes it look more professional */
+}
