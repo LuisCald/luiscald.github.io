@@ -124,30 +124,50 @@ document.addEventListener("DOMContentLoaded", () => {
       "#FAFAD2", "#D3D3D3", "#FFF5EE", "#F5F5DC", "#F0F8FF"
   ];
 
-  const numTiles = 4 + Math.floor(Math.random() * 3); // 4 to 6 tiles
+  const numTiles = Math.min(colors.length, 6); // 4 to 6 unique tiles
   const tileSize = Math.max(window.innerWidth, window.innerHeight) / 3; // Large tiles
+
+  // Predefined positions for consistent layout
+  const positions = [
+      { left: "5%", top: "10%" },
+      { left: "50%", top: "5%" },
+      { left: "80%", top: "30%" },
+      { left: "10%", top: "60%" },
+      { left: "50%", top: "75%" },
+      { left: "85%", top: "80%" }
+  ];
 
   // Clear existing tiles before adding new ones
   tileContainer.innerHTML = "";
 
-  // Create and position large tiles
+  // Use a set to track used colors (to prevent duplicates)
+  const usedColors = new Set();
+
   for (let i = 0; i < numTiles; i++) {
       const tile = document.createElement("div");
       tile.classList.add("tile");
-      tile.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+      // Assign unique colors
+      let color;
+      do {
+          color = colors[Math.floor(Math.random() * colors.length)];
+      } while (usedColors.has(color));
+      usedColors.add(color);
+
+      tile.style.backgroundColor = color;
       tile.style.width = `${tileSize}px`;
       tile.style.height = `${tileSize}px`;
       tile.style.position = "absolute";
-      tile.style.left = `${Math.random() * (window.innerWidth - tileSize)}px`;
-      tile.style.top = `${Math.random() * (window.innerHeight - tileSize)}px`;
+      tile.style.left = positions[i].left;
+      tile.style.top = positions[i].top;
       tileContainer.appendChild(tile);
   }
 
   const tiles = document.querySelectorAll(".tile");
 
-  // Elegant animation function using requestAnimationFrame
+  // Smooth floating animation
   function animateTiles() {
-      const time = Date.now() / 1500; // Slower movement for elegance
+      const time = Date.now() / 2000; // Slow, smooth movement
 
       tiles.forEach((tile, index) => {
           const offsetX = Math.sin(time + index) * 10; // Gentle horizontal sway
@@ -155,8 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
           tile.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       });
 
-      requestAnimationFrame(animateTiles); // Keep animating efficiently
+      requestAnimationFrame(animateTiles);
   }
 
-  requestAnimationFrame(animateTiles); // Start the animation
+  requestAnimationFrame(animateTiles); // Start animation
 });

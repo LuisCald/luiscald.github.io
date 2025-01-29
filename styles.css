@@ -59,7 +59,7 @@ html {
   border-radius: 20px; /* Smooth rounded edges */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Elegant soft shadow */
   transition: transform 1s ease-in-out; /* Smooth movement */
-  opacity: 0.8; /* Slight transparency */
+  opacity: 0.9; /* Slight transparency */
 }
 
 /* Tetris-Like Animation */
