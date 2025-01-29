@@ -59,7 +59,11 @@
       <img src="/images/profile.jpg" alt="Luis Calderon" class="profile-photo">
     </div>
   </div>
-  <p class="photo-credit">Photographer: Bernadett Yehdou</p>
+
+  <p class="photo-credit">
+    Photo by <a href="https://www.fotoyeh.de/portfolio-fotograf-bernadett-yehdou-bonn-koeln" target="_blank">Bernadett Yehdou</a>
+</p>
+
 </main>
 
   <footer>
