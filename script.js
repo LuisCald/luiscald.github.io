@@ -124,31 +124,35 @@ document.addEventListener("DOMContentLoaded", () => {
       "#FAFAD2", "#D3D3D3", "#FFF5EE", "#F5F5DC", "#F0F8FF"
   ];
 
-  const tileSize = 60; // Size of each tile
-  const maxTiles = Math.min((window.innerWidth / tileSize) * (window.innerHeight / tileSize), 200);
-  
+  const numTiles = 4 + Math.floor(Math.random() * 3); // 4 to 6 tiles
+  const tileSize = Math.max(window.innerWidth, window.innerHeight) / 3; // Large tiles
+
   // Clear existing tiles before adding new ones
   tileContainer.innerHTML = "";
 
-  // Create and position tiles
-  for (let i = 0; i < maxTiles; i++) {
+  // Create and position large tiles
+  for (let i = 0; i < numTiles; i++) {
       const tile = document.createElement("div");
       tile.classList.add("tile");
       tile.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      tile.style.left = `${(i % (window.innerWidth / tileSize)) * tileSize}px`;
-      tile.style.top = `${Math.floor(i / (window.innerWidth / tileSize)) * tileSize}px`;
+      tile.style.width = `${tileSize}px`;
+      tile.style.height = `${tileSize}px`;
+      tile.style.position = "absolute";
+      tile.style.left = `${Math.random() * (window.innerWidth - tileSize)}px`;
+      tile.style.top = `${Math.random() * (window.innerHeight - tileSize)}px`;
       tileContainer.appendChild(tile);
   }
 
   const tiles = document.querySelectorAll(".tile");
 
-  // Optimized animation function using requestAnimationFrame
+  // Elegant animation function using requestAnimationFrame
   function animateTiles() {
-      const time = Date.now() / 1000; // Get time in seconds
+      const time = Date.now() / 1500; // Slower movement for elegance
 
       tiles.forEach((tile, index) => {
-          const offset = Math.sin(time + index * 0.2) * 5; // Small movement for elegance
-          tile.style.transform = `translateY(${offset}px)`;
+          const offsetX = Math.sin(time + index) * 10; // Gentle horizontal sway
+          const offsetY = Math.cos(time + index) * 10; // Gentle vertical sway
+          tile.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       });
 
       requestAnimationFrame(animateTiles); // Keep animating efficiently
@@ -156,7 +160,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   requestAnimationFrame(animateTiles); // Start the animation
 });
-
-
-
-  

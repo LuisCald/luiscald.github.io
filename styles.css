@@ -53,22 +53,13 @@ html {
   z-index: -1; /* Place behind other content */
 }
 
-/* .tile {
-  width: 50px;
-  height: 50px;
-  background: #444;
-  border: 1px solid #555;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-} */
-
-/* Individual Tiles */
 .tile {
   width: 100%;
   height: 60px;
-  background-color: #ADD8E6; /* Default Light Blue */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth animations */
+  border-radius: 20px; /* Smooth rounded edges */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Elegant soft shadow */
+  transition: transform 1s ease-in-out; /* Smooth movement */
+  opacity: 0.8; /* Slight transparency */
 }
 
 /* Tetris-Like Animation */
@@ -209,6 +200,16 @@ font-weight: bold;
     font-size: 18px; /* Smaller header text */
     padding: 10px;
   }
+
+  .tile-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure tiles are behind content */
+  }
+  
 
   .tile-container {
     grid-template-columns: repeat(auto-fit, minmax(20px, 1fr)); /* Smaller tiles */
