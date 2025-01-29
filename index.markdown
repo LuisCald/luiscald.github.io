@@ -58,8 +58,8 @@
     <div class="image-block">
       <img src="/images/profile.jpg" alt="Luis Calderon" class="profile-photo">
     </div>
-    <p class="photo-credit">Photographer: Bernadett Yehdou</p>
   </div>
+  <p class="photo-credit">Photographer: Bernadett Yehdou</p>
 </main>
 
   <footer>
