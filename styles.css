@@ -346,7 +346,7 @@ font-weight: bold;
 .photo-credit {
   font-size: 5px;  /* Small text */
   color: gray;       /* Light gray font */
-  text-align: right; /* Centered under the image */
+  text-align: right; 
   margin-top: 5px;   /* Small space above */
   font-style: italic; /* Optional: makes it look more professional */
   display: block;     /* Ensure it's not inline */
