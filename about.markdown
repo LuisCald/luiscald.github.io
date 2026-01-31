@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-## Who I Am
+<!-- ## Who I Am
 My name is Luis Justo Calderon Jr. and I am a 5th year PhD student at the University of Bonn, working in macroeconomics.
 
 ## My Background
@@ -14,7 +14,7 @@ I was born in Miami, FL to two loving parents. My mom is from Nicaragua, having 
 
 Growing up, I thought I had everything. I did not feel a struggle. My parents worked hard to ensure there was food in the house and that I had my things for school. It was only later on that I realized that they made me feel like I had everything and that I wasn't struggling. Seeing other kids 
 
-According to Raj Chetty, my future seemed bleak. In terms of my expected future income and educational attainment, I would do no better than my parents, which never set foot in a college.  I loved lived in a neighborhood I am a graduate from South Dade Senior High School in Homestead, FL.  and stayed close to home for college. I attended Florida International University as a dual-degree student in accounting and finance. After some internships, I exchanged accounting for economics. I would graduate with a degree in economics and a degree in finance. I then applied and accepted a spot upon offer to the University of Bonn for their master's program in Economics. I would go on to work as an RA at briq (now absorbed by IZA) under Leander Heldring and at the Institute of Macroeconomics and Econometrics under Christian Bayer.   
+According to Raj Chetty, my future seemed bleak. In terms of my expected future income and educational attainment, I would do no better than my parents, which never set foot in a college.  I loved lived in a neighborhood I am a graduate from South Dade Senior High School in Homestead, FL.  and stayed close to home for college. I attended Florida International University as a dual-degree student in accounting and finance. After some internships, I exchanged accounting for economics. I would graduate with a degree in economics and a degree in finance. I then applied and accepted a spot upon offer to the University of Bonn for their master's program in Economics. I would go on to work as an RA at briq (now absorbed by IZA) under Leander Heldring and at the Institute of Macroeconomics and Econometrics under Christian Bayer.    -->
 
 ## My Interests
 I love chess (ELO around 2000) and sports in general. I actively play basketball and tennis. I also enjoy cooking and watching TV.   
