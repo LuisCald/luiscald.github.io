@@ -8,10 +8,10 @@ permalink: /software/
 
 ## BASEforHANK
 - [BASEforHANK toolbox page](/baseforhank/)
-- GitHub: https://github.com/BASEforHANK/BASEtoolbox.jl
+- GitHub: [BASEforHANK/BASEtoolbox.jl](https://github.com/BASEforHANK/BASEtoolbox.jl)
 
 ## Spatial standard errors (Conley-style)
 - Paper (PDF): [/pdfs/Conley_nonlinear.pdf](/pdfs/Conley_nonlinear.pdf)
 - Title: *Spatial standard errors for several commonly used M-estimators*
-- Code: https://github.com/LuisCald/spacereg
+- Code: [LuisCald/spacereg](https://github.com/LuisCald/spacereg)
 
