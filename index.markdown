@@ -35,6 +35,8 @@
       <ul id="nav-links" class="nav-links">
         <li><a class="page-link" href="/cv/">CV</a></li>
         <li><a class="page-link" href="/projects/">Research</a></li>
+        <li><a class="page-link" href="/software/">Software</a></li>
+        <li><a class="page-link" href="/baseforhank/">BASEforHANK</a></li>
         <!-- <li><a class="page-link" href="/chess/">Chess with Luis</a></li> -->
       </ul>
     </nav>
@@ -50,7 +52,7 @@
       <p>My primary interests emphasizes the role of <b>household hetereogeneity</b> for monetary and fiscal policy and macroeconomic dynamics. For this, I draw from an extensive tool kit that spans <b>bayesian econometrics, functional data analysis, and semi-structural time series</b> models to fully structural approaches.</p>
       <p>Secondary interests are in role of banking in shaping macroeconomic dynamics and inequality. </p>
       <p>I hold a Master’s degree in Economic Research from Bonn and Bachelor’s degrees in Economics and Finance from Florida International University in Miami, FL.</p>
-      <p>At the University of Bonn, I am currently under the supervision of Christian Bayer, Moritz Kuhn and Farzad Saidi.</p>
+      <p>At the University of Bonn, I am currently under the supervision of Christian Bayer and Farzad Saidi.</p>
       <p>Feel free to check back. Will post some cool stuff soon!</p>
     </div>
 
