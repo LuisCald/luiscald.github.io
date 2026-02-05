@@ -29,12 +29,16 @@ github_username: luiscald
 
 # Navigation links
 nav:
-  - title: "Home"
-    url: "/"
   - title: "About"
-    url: "/about"
-  - title: "Projects"
-    url: "/Projects"
+    url: "/about/"
+  - title: "CV"
+    url: "/cv/"
+  - title: "Research"
+    url: "/projects/"
+  - title: "BASEforHANK"
+    url: "/baseforhank/"
+  - title: "Software"
+    url: "/software/"
 
 # Build settings
 theme: minima

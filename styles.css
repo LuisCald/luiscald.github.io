@@ -116,13 +116,13 @@ font-weight: bold;
   z-index: 3; /* Ensure it stays above tiles and main content */
   background: white; /* rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
   padding: 10px;
-  color: white; /* Ensure text is white */
+  color: black;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better separation */
 }
 
 .site-title {
   font-size: 24px;
-  color: white;
+  color: black;
   font-weight: bold;
   text-decoration: none; /* No underline by default */
   z-index: 4; /* Ensure title remains on top within the header */
@@ -138,7 +138,7 @@ font-weight: bold;
 }
 
 .site-header a {
-  color: white; /* Ensure links are visible */
+  color: black;
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make links stand out */
   z-index: 4; /* Ensure links remain above tiles */
@@ -186,7 +186,7 @@ font-weight: bold;
 
 /* Page Link Styling */
 .page-link {
-  color: white; /* Make the link text white */
+  color: black;
   text-decoration: none; /* Remove the underline */
   font-weight: bold; /* Make text bold */
 }
@@ -267,7 +267,7 @@ font-weight: bold;
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
-  color: white; /* Match header text */
+  color: black;
 }
 
 /* Show Hamburger Menu and Hide Inline Nav on Mobile */

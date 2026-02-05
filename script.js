@@ -119,6 +119,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const tileContainer = document.querySelector(".tile-container");
+    if (!tileContainer) return;
+
   const colors = [
       "#ADD8E6", "#FFFACD", "#FFE4E1", "#E6E6FA", "#F0FFF0",
       "#FAFAD2", "#D3D3D3", "#FFF5EE", "#F5F5DC", "#F0F8FF"
@@ -180,3 +182,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   requestAnimationFrame(animateTiles); // Start animation
 });
+
+function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    if (!navLinks) return;
+    navLinks.classList.toggle("visible");
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+  </head>
+
+  <body>
+    <div class="tile-container"></div>
+
+    <header class="site-header" role="banner">
+      <div class="wrapper">
+        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <nav class="site-nav">
+          <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+          <ul id="nav-links" class="nav-links">
+            <li><a class="page-link" href="{{ '/about/' | relative_url }}">About</a></li>
+            <li><a class="page-link" href="{{ '/cv/' | relative_url }}">CV</a></li>
+            <li><a class="page-link" href="{{ '/projects/' | relative_url }}">Research</a></li>
+            <li><a class="page-link" href="{{ '/baseforhank/' | relative_url }}">BASEforHANK</a></li>
+            <li><a class="page-link" href="{{ '/software/' | relative_url }}">Software</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    <footer>
+      <h2 class="footer-heading">Contact</h2>
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <ul class="contact-list">
+            <li>
+              <a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{{ '/script.js' | relative_url }}"></script>
+  </body>
+</html>
