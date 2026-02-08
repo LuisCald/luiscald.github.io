@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spacereg — Spatial Standard Errors for M-Estimators</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f4f0;
+  --bg-warm: #eee9e0;
+  --ink: #1a1a2e;
+  --ink-light: #4a4a5e;
+  --ink-faint: #8a8a9e;
+  --accent: #1e3a5f;
+  --accent-bright: #2c5282;
+  --accent-glow: #3b6cb0;
+  --green: #2d6a4f;
+  --green-light: #d8f3dc;
+  --amber: #b45309;
+  --amber-light: #fef3c7;
+  --red: #b91c1c;
+  --red-light: #fee2e2;
+  --border: #d4cfc6;
+  --code-bg: #f0ece4;
+  --card-bg: #fdfcfa;
+  --shadow: 0 1px 3px rgba(26,26,46,0.06), 0 4px 12px rgba(26,26,46,0.04);
+  --shadow-lg: 0 4px 12px rgba(26,26,46,0.08), 0 12px 32px rgba(26,26,46,0.06);
+  --font-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'DM Mono', 'Menlo', 'Consolas', monospace;
+  --max-w: 780px;
+  --max-w-wide: 920px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.72;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle paper texture via gradient noise */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+.container-wide { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(246, 244, 240, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+}
+
+nav .nav-inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+nav .brand {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+nav .links { display: flex; gap: 6px; }
+
+nav .links a {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-light);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
+}
+
+nav .links a:hover { color: var(--accent); background: rgba(30,58,95,0.06); }
+
+/* ─── HERO ─── */
+.hero {
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .pkg-name {
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.hero .pkg-name::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-bright), transparent);
+  border-radius: 2px;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 640px;
+  margin: 24px auto 16px;
+}
+
+.hero .authors {
+  font-size: 16px;
+  color: var(--ink-light);
+  margin-bottom: 12px;
+}
+
+.hero .tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15.5px;
+  color: var(--ink-faint);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.hero .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(30,58,95,0.25);
+}
+
+.btn-primary:hover { background: var(--accent-bright); box-shadow: 0 4px 16px rgba(30,58,95,0.3); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--border);
+}
+
+.btn-outline:hover { border-color: var(--accent); background: rgba(30,58,95,0.04); }
+
+.btn-sm { padding: 8px 18px; font-size: 13.5px; border-radius: 6px; }
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-faint);
+  border: 1px solid var(--border);
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 72px 0; }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+p { margin-bottom: 16px; }
+p:last-child { margin-bottom: 0; }
+
+.prose { color: var(--ink-light); }
+
+.spacereg-inline {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--accent);
+  font-size: 0.92em;
+}
+
+/* ─── MATH ─── */
+.math-block {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin: 28px 0;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+
+.math-block .katex-display { margin: 0; }
+
+/* ─── M-ESTIMATOR EXPLORER ─── */
+.model-tabs {
+  display: flex;
+  gap: 0;
+  margin: 32px 0 0;
+  border-bottom: 2px solid var(--border);
+}
+
+.model-tab {
+  flex: 1;
+  padding: 14px 8px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.model-tab:hover { color: var(--ink-light); background: rgba(30,58,95,0.03); }
+
+.model-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: rgba(30,58,95,0.04);
+}
+
+.model-panel {
+  display: none;
+  padding: 28px 0 0;
+  animation: fadeUp 0.3s ease;
+}
+
+.model-panel.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.model-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.model-detail-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+}
+
+.model-detail-card .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+.model-desc {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-light);
+}
+
+/* ─── KERNEL VISUALIZER ─── */
+.kernel-viz-wrapper {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 32px 0;
+  box-shadow: var(--shadow-lg);
+}
+
+.kernel-viz-controls {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.kernel-viz-controls label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-light);
+}
+
+.kernel-viz-controls input[type="range"] {
+  width: 180px;
+  accent-color: var(--accent);
+}
+
+.kernel-radio-group { display: flex; gap: 16px; }
+
+.kernel-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-light);
+}
+
+.kernel-radio input { accent-color: var(--accent); }
+
+#kernelCanvas {
+  display: block;
+  margin: 0 auto;
+  cursor: crosshair;
+  border-radius: 8px;
+}
+
+.kernel-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.legend-gradient {
+  width: 120px;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(30,58,95,0.05), rgba(30,58,95,0.9));
+  border: 1px solid var(--border);
+}
+
+.kernel-formulas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.kernel-formula-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+}
+
+.kernel-formula-card h4 {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+}
+
+/* ─── CODE TABS ─── */
+.code-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 2px solid var(--border);
+}
+
+.code-tab {
+  padding: 10px 24px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-faint);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.code-tab.active-python { color: var(--accent); border-bottom-color: var(--accent); }
+.code-tab.active-stata { color: var(--green); border-bottom-color: var(--green); }
+.code-tab:hover { color: var(--ink); }
+
+.code-panel { display: none; }
+.code-panel.active { display: block; }
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 0 0 10px 10px;
+  padding: 24px 28px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  border-top: none;
+}
+
+pre.standalone { border-radius: 10px; border-top: 1px solid var(--border); }
+
+.code-comment { color: var(--ink-faint); }
+.code-keyword { color: var(--accent-bright); font-weight: 500; }
+.code-string { color: var(--green); }
+.code-output { color: var(--ink-light); }
+
+.sample-output {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-light);
+}
+
+.sample-output .output-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+/* ─── HEATMAP ─── */
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: 120px repeat(3, 1fr);
+  gap: 4px;
+  margin: 28px 0;
+  max-width: 560px;
+}
+
+.heatmap-header {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  padding: 10px 12px;
+  text-align: center;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.heatmap-header:first-child { justify-content: flex-start; }
+
+.heatmap-row-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
+
+.heatmap-cell {
+  border-radius: 8px;
+  padding: 18px 12px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: default;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+}
+
+.heatmap-cell:hover { transform: scale(1.05); box-shadow: var(--shadow-lg); z-index: 2; }
+
+.heatmap-cell.cov-green { background: var(--green-light); color: var(--green); }
+.heatmap-cell.cov-amber { background: var(--amber-light); color: var(--amber); }
+.heatmap-cell.cov-red { background: var(--red-light); color: var(--red); }
+
+.heatmap-cell .tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  text-align: left;
+}
+
+.heatmap-cell .tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+
+.heatmap-cell:hover .tooltip { display: block; }
+
+.nominal-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+}
+
+.nominal-line span {
+  flex: 1;
+  height: 1px;
+  border-top: 2px dashed var(--border);
+}
+
+/* ─── DATA TABLE ─── */
+.data-table-wrapper {
+  overflow-x: auto;
+  margin: 28px 0;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--card-bg);
+}
+
+th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  background: var(--code-bg);
+  padding: 12px 14px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th:first-child { text-align: left; }
+
+td {
+  padding: 11px 14px;
+  text-align: center;
+  border-bottom: 1px solid rgba(212,207,198,0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+td:first-child {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+tr:last-child td { border-bottom: none; }
+
+td.cov-green { color: var(--green); font-weight: 600; }
+td.cov-amber { color: var(--amber); font-weight: 600; }
+td.cov-red { color: var(--red); font-weight: 600; }
+
+/* ─── CALLOUT ─── */
+.callout {
+  border-left: 4px solid var(--accent);
+  background: rgba(30,58,95,0.04);
+  padding: 20px 24px;
+  border-radius: 0 10px 10px 0;
+  margin: 28px 0;
+  font-size: 15.5px;
+  color: var(--ink-light);
+  line-height: 1.65;
+}
+
+/* ─── INSTALL ─── */
+.install-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.install-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.install-card h3 {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.install-card pre {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 12px 0;
+  padding: 14px 18px;
+  font-size: 13px;
+}
+
+.install-card p { font-size: 14.5px; color: var(--ink-light); }
+
+.install-card .deps {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-top: 12px;
+}
+
+.download-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* ─── CITATION ─── */
+.citation-block {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin: 24px 0;
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.bibtex-wrapper {
+  position: relative;
+  margin: 20px 0;
+}
+
+.bibtex-wrapper pre {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding-right: 80px;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--ink-light);
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.7);
+  padding: 56px 28px 40px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+footer .footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+footer h4 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 14px;
+}
+
+footer p { font-size: 14.5px; line-height: 1.7; margin-bottom: 10px; }
+
+footer a { color: rgba(255,255,255,0.85); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.3); }
+footer a:hover { color: #fff; }
+
+footer .footer-refs { margin-bottom: 32px; }
+
+footer .footer-refs p {
+  font-size: 13.5px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
+
+footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px;
+}
+
+footer .footer-bottom .brand {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+}
+
+/* ─── DIVIDER ─── */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  nav .links { display: none; }
+  .hero .pkg-name { font-size: 40px; }
+  .hero h1 { font-size: 20px; }
+  .model-detail { grid-template-columns: 1fr; }
+  .kernel-formulas { grid-template-columns: 1fr; }
+  .install-grid { grid-template-columns: 1fr; }
+  .heatmap-grid { grid-template-columns: 100px repeat(3, 1fr); }
+  .heatmap-cell { font-size: 14px; padding: 14px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#overview" class="brand">spacereg</a>
+    <div class="links">
+      <a href="#overview">Overview</a>
+      <a href="#m-estimators">M-Estimators</a>
+      <a href="#kernels">Kernels</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#usage">Usage</a>
+      <a href="#simulations">Simulations</a>
+      <a href="#install">Install</a>
+      <a href="#citation">Citation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero" id="overview">
+  <div class="container">
+    <div class="pkg-name">spacereg</div>
+    <h1>A Spatial Standard Errors Implementation for Several Commonly Used M-Estimators</h1>
+    <p class="authors">Luis Calderon (University of Bonn) &amp; Leander Heldring (Northwestern University / Briq)</p>
+    <p class="tagline">Conley standard errors for OLS, Logit, Probit, Poisson, and Negative Binomial — unified through the M-estimator framework.</p>
+    <div class="actions">
+      <a href="paper_without_comments.pdf" target="_blank" class="btn btn-primary">Read the Paper</a>
+      <a href="https://github.com/LuisCald/spacereg" target="_blank" class="btn btn-outline">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+    <span class="badge">Python &amp; STATA</span>
+  </div>
+</header>
+
+<hr class="section-divider">
+
+<!-- ═══ M-ESTIMATOR INSIGHT ═══ -->
+<section id="m-estimators">
+  <div class="container">
+    <div class="section-label">Core Contribution</div>
+    <h2>The Unifying Idea: M-Estimators</h2>
+    <p class="prose">An M-estimator minimizes (or solves the first-order conditions of) an objective function. OLS, Logit, Probit, Poisson, and Negative Binomial are all M-estimators. This means their variance can be estimated with a single framework: the <em>sandwich estimator</em>. <span class="spacereg-inline">spacereg</span> implements Conley's (1999) spatial HAC correction within this framework for all five models.</p>
+
+    <div class="math-block">
+      $$\widehat{\text{Var}}(\hat{\beta}) \;=\; \underbrace{H^{-1}}_{\text{Bread}} \;\;\underbrace{\Omega}_{\text{Filling}}\;\; \underbrace{H^{-1}}_{\text{Bread}}$$
+    </div>
+
+    <p class="prose">Click a model below to see how its specific score vector and Hessian plug into this unified framework. The sandwich structure stays the same — only the ingredients change.</p>
+
+    <!-- Model Tabs -->
+    <div class="model-tabs">
+      <button class="model-tab active" data-model="ols">OLS</button>
+      <button class="model-tab" data-model="logit">Logit</button>
+      <button class="model-tab" data-model="probit">Probit</button>
+      <button class="model-tab" data-model="poisson">Poisson</button>
+      <button class="model-tab" data-model="nb">Neg. Binomial</button>
+    </div>
+
+    <!-- OLS Panel -->
+    <div class="model-panel active" id="panel-ols">
+      <div class="model-detail">
+        <div class="model-detail-card">
+          <div class="label">Score Vector &ensp;\( g_i \)</div>
+          $$g_i = x_i \, \varepsilon_i$$
+        </div>
+        <div class="model-detail-card">
+          <div class="label">Bread Matrix &ensp;\( H^{-1} \)</div>
+          $$\left(X^\top X\right)^{-1}$$
+        </div>
+      </div>
+      <p class="model-desc">Linear regression estimated by ordinary least squares.</p>
+    </div>
+
+    <!-- Logit Panel -->
+    <div class="model-panel" id="panel-logit">
+      <div class="model-detail">
+        <div class="model-detail-card">
+          <div class="label">Score Vector &ensp;\( g_i \)</div>
+          $$g_i = \bigl(y_i - \Lambda(x_i^\top\beta)\bigr)\, x_i$$
+        </div>
+        <div class="model-detail-card">
+          <div class="label">Bread Matrix &ensp;\( H^{-1} \)</div>
+          $$\left(-\frac{\partial^2 \ell}{\partial \beta \,\partial \beta^\top}\right)^{\!-1}$$
+        </div>
+      </div>
+      <p class="model-desc">Binary outcomes with logistic link function, estimated by maximum likelihood.</p>
+    </div>
+
+    <!-- Probit Panel -->
+    <div class="model-panel" id="panel-probit">
+      <div class="model-detail">
+        <div class="model-detail-card">
+          <div class="label">Score Vector &ensp;\( g_i \)</div>
+          $$g_i = \frac{\bigl(y_i - \Phi(x_i^\top\beta)\bigr)\,\phi(x_i^\top\beta)}{\Phi(x_i^\top\beta)\bigl(1-\Phi(x_i^\top\beta)\bigr)}\, x_i$$
+        </div>
+        <div class="model-detail-card">
+          <div class="label">Bread Matrix &ensp;\( H^{-1} \)</div>
+          $$\left(-\frac{\partial^2 \ell}{\partial \beta \,\partial \beta^\top}\right)^{\!-1}$$
+        </div>
+      </div>
+      <p class="model-desc">Binary outcomes with normal CDF link, estimated by maximum likelihood.</p>
+    </div>
+
+    <!-- Poisson Panel -->
+    <div class="model-panel" id="panel-poisson">
+      <div class="model-detail">
+        <div class="model-detail-card">
+          <div class="label">Score Vector &ensp;\( g_i \)</div>
+          $$g_i = \bigl(y_i - \exp(x_i^\top\beta)\bigr)\, x_i$$
+        </div>
+        <div class="model-detail-card">
+          <div class="label">Bread Matrix &ensp;\( H^{-1} \)</div>
+          $$\left(-\frac{\partial^2 \ell}{\partial \beta \,\partial \beta^\top}\right)^{\!-1}$$
+        </div>
+      </div>
+      <p class="model-desc">Count data with log-linear mean, estimated by maximum likelihood.</p>
+    </div>
+
+    <!-- NB Panel -->
+    <div class="model-panel" id="panel-nb">
+      <div class="model-detail">
+        <div class="model-detail-card">
+          <div class="label">Score Vector &ensp;\( g_i \)</div>
+          $$g_i = \frac{y_i - \mu_i}{1 + \alpha\,\mu_i}\, x_i$$
+        </div>
+        <div class="model-detail-card">
+          <div class="label">Bread Matrix &ensp;\( H^{-1} \)</div>
+          $$\left(-\frac{\partial^2 \ell}{\partial \beta \,\partial \beta^\top}\right)^{\!-1}$$
+        </div>
+      </div>
+      <p class="model-desc">Overdispersed count data with NB2 parameterization, estimated by maximum likelihood.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══ KERNELS ═══ -->
+<section id="kernels">
+  <div class="container-wide">
+    <div class="section-label">Spatial Correction</div>
+    <h2>Spatial Dependence and Kernel Weights</h2>
+    <p class="prose" style="max-width:var(--max-w)">When observations are spatially correlated, standard errors that ignore this dependence are too small, and confidence intervals under-cover. The Conley (1999) estimator corrects for this by weighting the outer product of score vectors by a spatial kernel. Observations close together receive higher weight; those far apart receive zero weight beyond a cutoff distance.</p>
+
+    <!-- Interactive Kernel Visualizer -->
+    <div class="kernel-viz-wrapper">
+      <div class="kernel-viz-controls">
+        <label>
+          Cutoff \( c_d \): <strong id="cutoffVal">3.0</strong>
+          <input type="range" id="cutoffSlider" min="0.5" max="6" step="0.1" value="3">
+        </label>
+        <div class="kernel-radio-group">
+          <label class="kernel-radio">
+            <input type="radio" name="kernel" value="bartlett" checked>
+            Bartlett
+          </label>
+          <label class="kernel-radio">
+            <input type="radio" name="kernel" value="uniform">
+            Uniform
+          </label>
+        </div>
+        <span style="font-size:13px;color:var(--ink-faint)">Click any observation to select \( i \)</span>
+      </div>
+      <canvas id="kernelCanvas" width="856" height="420"></canvas>
+      <div class="kernel-legend">
+        <span>\( w_{ij} = 0 \)</span>
+        <div class="legend-gradient"></div>
+        <span>\( w_{ij} = 1 \)</span>
+        <span style="margin-left:24px;color:var(--accent)">&#9679;</span>
+        <span>Observation \( i \)</span>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-faint);margin-top:12px;line-height:1.6">Each dot is an observation \( j \). Its shade reflects the kernel weight \( w_{ij} \) — how much observation \( j \) contributes to the spatial correction of observation \( i \). The dashed circle shows the cutoff \( c_d \) beyond which \( w_{ij} = 0 \). The distance \( |s_{id} - s_{jd}| \) is the spatial separation between \( i \) and \( j \).</p>
+    </div>
+
+    <div class="kernel-formulas" style="max-width:var(--max-w);margin-left:auto;margin-right:auto;">
+      <div class="kernel-formula-card">
+        <h4>Bartlett Kernel</h4>
+        $$w_{ij} = \prod_{d=1}^{D} \max\!\left(0,\; 1 - \frac{|s_{id} - s_{jd}|}{c_d}\right)$$
+      </div>
+      <div class="kernel-formula-card">
+        <h4>Uniform Kernel</h4>
+        $$w_{ij} = \begin{cases} 1 & \text{if } |s_{id} - s_{jd}| < c_d \;\;\forall\, d \\ 0 & \text{otherwise} \end{cases}$$
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══ METHODOLOGY ═══ -->
+<section id="methodology">
+  <div class="container">
+    <div class="section-label">Technical Detail</div>
+    <h2>Methodology</h2>
+
+    <p class="prose">The core of the Conley estimator is the spatially-weighted outer product of score vectors — the "filling" of the sandwich:</p>
+
+    <div class="math-block">
+      $$\Omega = \sum_{i=1}^{n} \sum_{j=1}^{n} w_{ij} \, g_i \, g_j^\top$$
+    </div>
+
+    <p class="prose">Combined with the "bread" (the inverse Hessian), this gives the full variance estimator:</p>
+
+    <div class="math-block">
+      $$\widehat{\text{Var}}(\hat{\beta}) = H^{-1} \, \Omega \, H^{-1}$$
+    </div>
+
+    <p class="prose">The matrix \(\Omega\) is the spatially-weighted outer product of score vectors. \(H\) is the Hessian. For OLS, \(H^{-1} = (X^\top X)^{-1}\). For maximum likelihood estimators (logit, probit, poisson, NB), \(H\) is the negative Hessian of the log-likelihood. <span class="spacereg-inline">spacereg</span> computes both components and assembles the sandwich for each supported model.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══ USAGE ═══ -->
+<section id="usage">
+  <div class="container">
+    <div class="section-label">Getting Started</div>
+    <h2>Usage</h2>
+
+    <div class="code-tabs">
+      <button class="code-tab active-python" data-lang="python" onclick="switchCodeTab('python')">Python</button>
+      <button class="code-tab" data-lang="stata" onclick="switchCodeTab('stata')">STATA</button>
+    </div>
+
+    <div class="code-panel active" id="code-python">
+<pre><span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
+<span class="code-keyword">from</span> spacereg <span class="code-keyword">import</span> SpatialStandardErrorsComputer
+
+<span class="code-comment"># Load data</span>
+data = pd.read_stata(<span class="code-string">"spatial_data.dta"</span>)
+
+<span class="code-comment"># Initialize with coordinates and cutoffs</span>
+coordinates = [<span class="code-string">"C1"</span>, <span class="code-string">"C2"</span>]
+cutoffs = [<span class="code-string">"cutoff1"</span>, <span class="code-string">"cutoff2"</span>]
+base = SpatialStandardErrorsComputer(data, coordinates, cutoffs)
+
+<span class="code-comment"># OLS with Bartlett kernel (default)</span>
+ols_se = base.compute_conley_standard_errors_all_models(
+    <span class="code-string">"OLS"</span>, y=<span class="code-string">"dep"</span>, x=[<span class="code-string">"indep1"</span>, <span class="code-string">"const"</span>]
+)
+
+<span class="code-comment"># Logit</span>
+logit_se = base.compute_conley_standard_errors_all_models(
+    <span class="code-string">"logit"</span>, y=<span class="code-string">"binarydep"</span>, x=[<span class="code-string">"indep1"</span>, <span class="code-string">"const"</span>]
+)
+
+<span class="code-comment"># Poisson with Uniform kernel</span>
+poisson_se = base.compute_conley_standard_errors_all_models(
+    <span class="code-string">"poisson"</span>, y=<span class="code-string">"poissondep"</span>, x=[<span class="code-string">"indep1"</span>, <span class="code-string">"const"</span>],
+    kernel=<span class="code-string">"uniform"</span>
+)</pre>
+    </div>
+
+    <div class="code-panel" id="code-stata">
+<pre><span class="code-comment">* Load data</span>
+<span class="code-keyword">use</span> <span class="code-string">"spatial_data.dta"</span>, clear
+<span class="code-keyword">gen byte</span> const = 1
+
+<span class="code-comment">* OLS with Bartlett kernel (default)</span>
+spacereg dep indep1 const, coords(C1 C2) cutoffs(100 100) model(ols)
+
+<span class="code-comment">* OLS with Uniform kernel</span>
+spacereg dep indep1 const, coords(C1 C2) cutoffs(100 100) <span class="code-keyword">///</span>
+    model(ols) kernel(uniform)
+
+<span class="code-comment">* Logit</span>
+spacereg binarydep indep1 const, coords(C1 C2) cutoffs(100 100) <span class="code-keyword">///</span>
+    model(logit)
+
+<span class="code-comment">* Poisson</span>
+spacereg poissondep indep1 const, coords(C1 C2) cutoffs(100 100) <span class="code-keyword">///</span>
+    model(poisson)
+
+<span class="code-comment">* Fixed effects with reghdfe</span>
+spacereg dep indep1, coords(C1 C2) cutoffs(100 100) <span class="code-keyword">///</span>
+    model(reghdfe, fe1 fe2)</pre>
+    </div>
+
+    <div class="sample-output">
+      <div class="output-label">Sample Output</div>
+<span class="code-comment">OLS Conley Standard Errors (Bartlett):</span>
+  indep1    0.2145
+  const     1.3311
+
+<span class="code-comment">Logit Conley Standard Errors:</span>
+  indep1    0.0533
+  const     0.2793
+
+<span class="code-comment">Probit Conley Standard Errors:</span>
+  indep1    0.0328
+  const     0.1720
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══ SIMULATIONS ═══ -->
+<section id="simulations">
+  <div class="container">
+    <div class="section-label">Empirical Validation</div>
+    <h2>Finite-Sample Performance</h2>
+    <p class="prose">We evaluate finite-sample performance via Monte Carlo simulation. The DGP uses a Gaussian copula to introduce spatial dependence while preserving correct marginal distributions. Setup: 200 repetitions, 10&times;10 grid (\(N=100\)), true \(\beta = 0.5\), spatial correlation length \(\varphi = 1.0\), Conley cutoff = 3.0 grid units.</p>
+
+    <h3 style="margin-top:32px">95% Coverage Rates</h3>
+    <p class="prose" style="font-size:14.5px">Hover over each cell for detailed statistics.</p>
+
+    <!-- Heatmap -->
+    <div class="heatmap-grid">
+      <div class="heatmap-header"></div>
+      <div class="heatmap-header">HC1</div>
+      <div class="heatmap-header">Bartlett</div>
+      <div class="heatmap-header">Uniform</div>
+
+      <div class="heatmap-row-label">Logit</div>
+      <div class="heatmap-cell cov-green">0.950<span class="tooltip">Logit &middot; HC1<br>Coverage: 0.950<br>Mean SE: 0.228<br>Emp. SD: 0.227<br>Mean &beta;&#770;: 0.552</span></div>
+      <div class="heatmap-cell cov-amber">0.940<span class="tooltip">Logit &middot; Bartlett<br>Coverage: 0.940<br>Mean SE: 0.220<br>Emp. SD: 0.227<br>Mean &beta;&#770;: 0.552</span></div>
+      <div class="heatmap-cell cov-red">0.865<span class="tooltip">Logit &middot; Uniform<br>Coverage: 0.865<br>Mean SE: 0.203<br>Emp. SD: 0.227<br>Mean &beta;&#770;: 0.552</span></div>
+
+      <div class="heatmap-row-label">Probit</div>
+      <div class="heatmap-cell cov-green">0.970<span class="tooltip">Probit &middot; HC1<br>Coverage: 0.970<br>Mean SE: 0.147<br>Emp. SD: 0.145<br>Mean &beta;&#770;: 0.521</span></div>
+      <div class="heatmap-cell cov-green">0.960<span class="tooltip">Probit &middot; Bartlett<br>Coverage: 0.960<br>Mean SE: 0.140<br>Emp. SD: 0.145<br>Mean &beta;&#770;: 0.521</span></div>
+      <div class="heatmap-cell cov-red">0.875<span class="tooltip">Probit &middot; Uniform<br>Coverage: 0.875<br>Mean SE: 0.130<br>Emp. SD: 0.145<br>Mean &beta;&#770;: 0.521</span></div>
+
+      <div class="heatmap-row-label">Poisson</div>
+      <div class="heatmap-cell cov-amber">0.900<span class="tooltip">Poisson &middot; HC1<br>Coverage: 0.900<br>Mean SE: 0.094<br>Emp. SD: 0.105<br>Mean &beta;&#770;: 0.500</span></div>
+      <div class="heatmap-cell cov-amber">0.900<span class="tooltip">Poisson &middot; Bartlett<br>Coverage: 0.900<br>Mean SE: 0.092<br>Emp. SD: 0.105<br>Mean &beta;&#770;: 0.500</span></div>
+      <div class="heatmap-cell cov-red">0.830<span class="tooltip">Poisson &middot; Uniform<br>Coverage: 0.830<br>Mean SE: 0.088<br>Emp. SD: 0.105<br>Mean &beta;&#770;: 0.500</span></div>
+
+      <div class="heatmap-row-label">NB</div>
+      <div class="heatmap-cell cov-amber">0.935<span class="tooltip">NB &middot; HC1<br>Coverage: 0.935<br>Mean SE: 0.135<br>Emp. SD: 0.148<br>Mean &beta;&#770;: 0.494</span></div>
+      <div class="heatmap-cell cov-red">0.880<span class="tooltip">NB &middot; Bartlett<br>Coverage: 0.880<br>Mean SE: 0.128<br>Emp. SD: 0.148<br>Mean &beta;&#770;: 0.494</span></div>
+      <div class="heatmap-cell cov-red">0.815<span class="tooltip">NB &middot; Uniform<br>Coverage: 0.815<br>Mean SE: 0.114<br>Emp. SD: 0.148<br>Mean &beta;&#770;: 0.494</span></div>
+    </div>
+
+    <div class="nominal-line"><span></span> Nominal: 0.95 <span></span></div>
+
+    <!-- Full Table -->
+    <div class="data-table-wrapper" style="margin-top:32px">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Mean &beta;&#770;</th>
+            <th>Emp. SD</th>
+            <th>SE (HC1)</th>
+            <th>SE (Bartlett)</th>
+            <th>SE (Uniform)</th>
+            <th>Cov. HC1</th>
+            <th>Cov. Bartlett</th>
+            <th>Cov. Uniform</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Logit</td><td>0.552</td><td>0.227</td><td>0.228</td><td>0.220</td><td>0.203</td>
+            <td class="cov-green">0.950</td><td class="cov-amber">0.940</td><td class="cov-red">0.865</td>
+          </tr>
+          <tr>
+            <td>Probit</td><td>0.521</td><td>0.145</td><td>0.147</td><td>0.140</td><td>0.130</td>
+            <td class="cov-green">0.970</td><td class="cov-green">0.960</td><td class="cov-red">0.875</td>
+          </tr>
+          <tr>
+            <td>Poisson</td><td>0.500</td><td>0.105</td><td>0.094</td><td>0.092</td><td>0.088</td>
+            <td class="cov-amber">0.900</td><td class="cov-amber">0.900</td><td class="cov-red">0.830</td>
+          </tr>
+          <tr>
+            <td>NB</td><td>0.494</td><td>0.148</td><td>0.135</td><td>0.128</td><td>0.114</td>
+            <td class="cov-amber">0.935</td><td class="cov-red">0.880</td><td class="cov-red">0.815</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      In the presence of spatial dependence, naive robust standard errors can produce confidence intervals that substantially under-cover. For Poisson, HC1 achieves only 90% coverage at the nominal 95% level. The Bartlett kernel generally provides the best coverage among the spatial estimators.
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══ INSTALLATION ═══ -->
+<section id="install">
+  <div class="container">
+    <div class="section-label">Get Started</div>
+    <h2>Installation</h2>
+
+    <div class="install-grid">
+      <div class="install-card">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.36.1-.35.17-.33.24-.3.32-.26.41-.23.51-.19.61-.16.74-.1.88-.06 1.02-.02h1.29l.91.02.75.07.61.13.5.18.41.24.33.3.26.34.21.37.15.42.11.45.07.49.04.52V.81zM6.18 14.94l.63-.01.28.06.25.12.2.18.15.22.1.27.06.29v.79h-3.2v-.79l.06-.29.1-.27.15-.22.2-.18.24-.12.29-.06h.79zm7.61-7.64l-.28-.06-.26-.12-.2-.18-.15-.22-.1-.27-.04-.29V5.38h3.18v.77l-.04.29-.1.27-.15.22-.2.18-.26.12-.28.06h-.78z"/></svg>
+          Python
+        </h3>
+        <pre class="standalone">pip install pandas numpy statsmodels</pre>
+        <p>Download <span class="spacereg-inline">spacereg.py</span> and place it in your working directory.</p>
+        <p class="deps">Dependencies: Python &ge; 3.9, Pandas, NumPy, Statsmodels</p>
+        <div class="download-row">
+          <a href="spacereg.py" download class="btn btn-sm btn-outline">Download spacereg.py</a>
+        </div>
+      </div>
+
+      <div class="install-card">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--green)"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="serif">S</text></svg>
+          STATA
+        </h3>
+        <p>1. Download <span class="spacereg-inline">spacereg.ado</span> and <span class="spacereg-inline">spacereg.sthlp</span></p>
+        <p>2. Place in your ado folder (find with <code style="font-family:var(--font-mono);font-size:13px;background:var(--code-bg);padding:2px 6px;border-radius:4px">sysdir</code> in STATA)</p>
+        <p>3. Install dependency:</p>
+        <pre class="standalone">ssc install reghdfe</pre>
+        <div class="download-row">
+          <a href="spacereg.ado" download class="btn btn-sm btn-outline">spacereg.ado</a>
+          <a href="spacereg.sthlp" download class="btn btn-sm btn-outline">spacereg.sthlp</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:20px">
+      <a href="paper_without_comments.pdf" target="_blank" class="btn btn-primary">Download Paper (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══ CITATION ═══ -->
+<section id="citation">
+  <div class="container">
+    <div class="section-label">Reference</div>
+    <h2>Citation</h2>
+
+    <div class="citation-block">
+      Calderon, L. and Heldring, L. (2026). &ldquo;A Spatial Standard Errors Implementation for Several Commonly Used M-Estimators.&rdquo; University of Bonn / Northwestern University.
+    </div>
+
+    <h3>BibTeX</h3>
+    <div class="bibtex-wrapper">
+<pre class="standalone" id="bibtexCode">@article{calderon2026spatial,
+  title   = {A Spatial Standard Errors Implementation
+             for Several Commonly Used {M}-Estimators},
+  author  = {Calderon, Luis and Heldring, Leander},
+  year    = {2026},
+  institution = {University of Bonn and
+                 Northwestern University}
+}</pre>
+      <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-refs">
+      <h4>References</h4>
+      <p>Conley, T. G. (1999). &ldquo;GMM estimation with cross sectional dependence.&rdquo; Journal of Econometrics, 92(1), 1&ndash;45.</p>
+      <p>Jenish, N. &amp; Prucha, I. R. (2009). &ldquo;Central limit theorems and uniform laws of large numbers for arrays of random fields.&rdquo; Journal of Econometrics, 150(1), 86&ndash;98.</p>
+    </div>
+    <div class="footer-bottom">
+      <span class="brand">spacereg</span>
+      <span>
+        <a href="mailto:luis.calderon@uni-bonn.de">luis.calderon@uni-bonn.de</a>
+        &ensp;&middot;&ensp;
+        <a href="https://github.com/LuisCald/spacereg" target="_blank">GitHub</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // KaTeX auto-render
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '\\(', right: '\\)', display: false },
+    ],
+    throwOnError: false
+  });
+
+  // ─── MODEL TAB SWITCHER ───
+  const modelTabs = document.querySelectorAll('.model-tab');
+  const modelPanels = document.querySelectorAll('.model-panel');
+
+  modelTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const model = tab.dataset.model;
+      modelTabs.forEach(t => t.classList.remove('active'));
+      modelPanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + model).classList.add('active');
+    });
+  });
+
+  // ─── KERNEL VISUALIZER ───
+  const canvas = document.getElementById('kernelCanvas');
+  const ctx = canvas.getContext('2d');
+  const slider = document.getElementById('cutoffSlider');
+  const cutoffLabel = document.getElementById('cutoffVal');
+  const radios = document.querySelectorAll('input[name="kernel"]');
+
+  const padding = 50;
+  // Compute uniform spacing from the shorter dimension (height),
+  // then fill the width with as many columns as fit.
+  const gridRows = 8;
+  const spacing = (canvas.height - 2 * padding) / (gridRows - 1);
+  const gridCols = Math.floor((canvas.width - 2 * padding) / spacing) + 1;
+  const totalDots = gridRows * gridCols;
+  const gridW = spacing * (gridCols - 1);
+  const gridH = spacing * (gridRows - 1);
+  const offsetX = (canvas.width - gridW) / 2 - spacing;
+  const offsetY = (canvas.height - gridH) / 2;
+  // Select a dot near the center
+  let selectedIdx = Math.floor(gridRows / 2) * gridCols + Math.floor(gridCols / 2);
+
+  function getKernel() {
+    return document.querySelector('input[name="kernel"]:checked').value;
+  }
+
+  function gridPos(idx) {
+    const row = Math.floor(idx / gridCols);
+    const col = idx % gridCols;
+    return { x: offsetX + col * spacing, y: offsetY + row * spacing, col, row };
+  }
+
+  function euclidean(r1, c1, r2, c2) {
+    return Math.sqrt((r1 - r2) ** 2 + (c1 - c2) ** 2);
+  }
+
+  function drawGrid() {
+    const cutoff = parseFloat(slider.value);
+    const kernel = getKernel();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const selPos = gridPos(selectedIdx);
+    const dotRadius = spacing * 0.26;
+
+    // Draw connections from selected to weighted neighbors
+    for (let i = 0; i < totalDots; i++) {
+      if (i === selectedIdx) continue;
+      const pos = gridPos(i);
+      const dist = euclidean(selPos.row, selPos.col, pos.row, pos.col);
+      let w;
+      if (kernel === 'bartlett') {
+        w = Math.max(0, 1 - dist / cutoff);
+      } else {
+        w = dist <= cutoff ? 1 : 0;
+      }
+      if (w > 0.01) {
+        ctx.beginPath();
+        ctx.moveTo(selPos.x, selPos.y);
+        ctx.lineTo(pos.x, pos.y);
+        const lineAlpha = kernel === 'uniform' ? 0.15 : w * 0.12;
+        ctx.strokeStyle = `rgba(30, 58, 95, ${lineAlpha})`;
+        ctx.lineWidth = w * 2;
+        ctx.stroke();
+      }
+    }
+
+    // Draw dots
+    for (let i = 0; i < totalDots; i++) {
+      const pos = gridPos(i);
+      if (i === selectedIdx) {
+        // Selected dot
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, dotRadius + 4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(30, 58, 95, 0.12)';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, dotRadius, 0, Math.PI * 2);
+        ctx.fillStyle = '#1e3a5f';
+        ctx.fill();
+      } else {
+        const dist = euclidean(selPos.row, selPos.col, pos.row, pos.col);
+        let w;
+        if (kernel === 'bartlett') {
+          w = Math.max(0, 1 - dist / cutoff);
+        } else {
+          w = dist <= cutoff ? 1 : 0;
+        }
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, dotRadius, 0, Math.PI * 2);
+        if (w > 0.001) {
+          const alpha = kernel === 'uniform' ? 0.92 : 0.1 + w * 0.8;
+          ctx.fillStyle = `rgba(30, 58, 95, ${alpha})`;
+        } else {
+          ctx.fillStyle = 'rgba(30, 58, 95, 0.08)';
+        }
+        ctx.fill();
+      }
+    }
+
+    // Draw cutoff circle
+    const cutoffPx = cutoff * spacing;
+    ctx.beginPath();
+    ctx.arc(selPos.x, selPos.y, cutoffPx, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(30, 58, 95, 0.25)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([6, 4]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Label "i" on selected observation
+    ctx.font = 'italic 14px "Libre Baskerville", Georgia, serif';
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('i', selPos.x, selPos.y);
+
+    // Label cutoff radius with notation
+    ctx.font = '12px "DM Mono", monospace';
+    ctx.fillStyle = 'rgba(30, 58, 95, 0.55)';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    const labelAngle = -Math.PI / 4;
+    const lx = selPos.x + cutoffPx * Math.cos(labelAngle) + 8;
+    const ly = selPos.y + cutoffPx * Math.sin(labelAngle) - 6;
+    ctx.fillText('c\u1D48 = ' + cutoff.toFixed(1), lx, ly);
+
+    // Label a nearby weighted observation as "j"
+    let bestJ = -1;
+    let bestW = 0;
+    for (let i = 0; i < totalDots; i++) {
+      if (i === selectedIdx) continue;
+      const p = gridPos(i);
+      const d = euclidean(selPos.row, selPos.col, p.row, p.col);
+      const wt = kernel === 'bartlett' ? Math.max(0, 1 - d / cutoff) : (d <= cutoff ? 1 : 0);
+      if (wt > 0.3 && wt < 0.85 && d > 1) { if (wt > bestW) { bestW = wt; bestJ = i; } }
+    }
+    // fallback: pick any neighbor with weight
+    if (bestJ === -1) {
+      for (let i = 0; i < totalDots; i++) {
+        if (i === selectedIdx) continue;
+        const p = gridPos(i);
+        const d = euclidean(selPos.row, selPos.col, p.row, p.col);
+        const wt = kernel === 'bartlett' ? Math.max(0, 1 - d / cutoff) : (d <= cutoff ? 1 : 0);
+        if (wt > 0.01 && d > 0.5) { if (wt > bestW) { bestW = wt; bestJ = i; } }
+      }
+    }
+    if (bestJ >= 0) {
+      const jp = gridPos(bestJ);
+      ctx.font = 'italic 13px "Libre Baskerville", Georgia, serif';
+      ctx.fillStyle = 'rgba(30, 58, 95, 0.7)';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('j', jp.x, jp.y - dotRadius - 3);
+      // Show w_ij value
+      ctx.font = '11px "DM Mono", monospace';
+      ctx.fillStyle = 'rgba(30, 58, 95, 0.5)';
+      ctx.textBaseline = 'top';
+      ctx.fillText('w\u1D62\u2C7C=' + bestW.toFixed(2), jp.x, jp.y + dotRadius + 4);
+    }
+  }
+
+  canvas.addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const my = (e.clientY - rect.top) * (canvas.height / rect.height);
+    let closest = 0;
+    let closestDist = Infinity;
+    for (let i = 0; i < totalDots; i++) {
+      const pos = gridPos(i);
+      const d = Math.hypot(mx - pos.x, my - pos.y);
+      if (d < closestDist) { closestDist = d; closest = i; }
+    }
+    if (closestDist < spacing * 0.6) {
+      selectedIdx = closest;
+      drawGrid();
+    }
+  });
+
+  slider.addEventListener('input', () => {
+    cutoffLabel.textContent = parseFloat(slider.value).toFixed(1);
+    drawGrid();
+  });
+
+  radios.forEach(r => r.addEventListener('change', drawGrid));
+
+  drawGrid();
+});
+
+// ─── CODE TAB SWITCHER ───
+function switchCodeTab(lang) {
+  document.querySelectorAll('.code-tab').forEach(t => {
+    t.classList.remove('active-python', 'active-stata');
+  });
+  document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('active'));
+
+  const tab = document.querySelector(`.code-tab[data-lang="${lang}"]`);
+  tab.classList.add(lang === 'python' ? 'active-python' : 'active-stata');
+  document.getElementById('code-' + lang).classList.add('active');
+}
+
+// ─── COPY BIBTEX ───
+function copyBibtex() {
+  const text = document.getElementById('bibtexCode').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
