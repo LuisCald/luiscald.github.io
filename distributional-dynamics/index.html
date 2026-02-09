@@ -625,8 +625,8 @@ footer .footer-bottom .brand {
   <div class="nav-inner">
     <a href="#overview" class="brand">distributional-dynamics</a>
     <div class="links">
-      <a href="#methodology">Methodology</a>
       <a href="#explorer">Explorer</a>
+      <a href="#methodology">Methodology</a>
       <a href="#data">Data</a>
       <a href="#citation">Citation</a>
     </div>
@@ -655,6 +655,49 @@ footer .footer-bottom .brand {
     <span class="badge">1962&ndash;2024 &middot; Quarterly &middot; PSID, SCF, CEX, SIPP, CPS</span>
   </div>
 </header>
+
+<hr class="section-divider">
+
+<!-- DISTRIBUTION EXPLORER -->
+<section id="explorer">
+  <div class="container-wide">
+    <div class="section-label">Explore the Data</div>
+    <h2>Distribution Dynamics Over Time</h2>
+    <p class="prose" style="max-width:var(--max-w)">Explore the synthetic distributional data across consumption, income, and wealth. Select a variable, metric, and toggle individual deciles. Gray bands indicate NBER recession periods.</p>
+
+    <div class="explorer-wrapper">
+      <div class="explorer-controls">
+        <div class="control-group">
+          <label>Variable</label>
+          <div class="checkbox-group" id="varGroup">
+            <label class="decile-toggle"><input type="checkbox" name="var" value="income" checked> Income</label>
+            <label class="decile-toggle"><input type="checkbox" name="var" value="consum"> Consumption</label>
+            <label class="decile-toggle"><input type="checkbox" name="var" value="wealth"> Wealth</label>
+          </div>
+        </div>
+        <div class="control-group">
+          <label>Metric</label>
+          <div class="checkbox-group" id="metricGroup">
+            <label class="decile-toggle"><input type="checkbox" name="metric" value="shares" checked> Shares</label>
+            <label class="decile-toggle"><input type="checkbox" name="metric" value="quantiles"> Quantiles</label>
+            <label class="decile-toggle"><input type="checkbox" name="metric" value="levels"> Levels</label>
+          </div>
+        </div>
+        <div class="control-group">
+          <label>Deciles</label>
+          <div class="decile-toggles" id="decileToggles"></div>
+        </div>
+        <label class="log-toggle">
+          <input type="checkbox" id="asinhScale"> IHS transform
+        </label>
+      </div>
+      <div class="chart-container">
+        <canvas id="explorerChart"></canvas>
+      </div>
+      <p class="chart-note">Source: Bayer, Calderon &amp; Kuhn (2025). PSID implied estimates from the state-space model. Levels in trillions USD; quantiles in USD.</p>
+    </div>
+  </div>
+</section>
 
 <hr class="section-divider">
 
@@ -709,49 +752,6 @@ footer .footer-bottom .brand {
     </div>
 
     <p class="prose">Here \(F_t\) are the latent distributional factors, \(Y_t\) are aggregate covariates, \(\hat{\Gamma}^{\text{MF}}\) is the factor loading matrix from PCA, and \(H^j_t\) is a selector matrix for each dataset \(j\). The model handles mixed frequencies through the time-aggregation parameter \(\alpha^j\).</p>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- DISTRIBUTION EXPLORER -->
-<section id="explorer">
-  <div class="container-wide">
-    <div class="section-label">Explore the Data</div>
-    <h2>Distribution Dynamics Over Time</h2>
-    <p class="prose" style="max-width:var(--max-w)">Explore the synthetic distributional data across consumption, income, and wealth. Select a variable, metric, and toggle individual deciles. Gray bands indicate NBER recession periods.</p>
-
-    <div class="explorer-wrapper">
-      <div class="explorer-controls">
-        <div class="control-group">
-          <label>Variable</label>
-          <div class="checkbox-group" id="varGroup">
-            <label class="decile-toggle"><input type="checkbox" name="var" value="income" checked> Income</label>
-            <label class="decile-toggle"><input type="checkbox" name="var" value="consum"> Consumption</label>
-            <label class="decile-toggle"><input type="checkbox" name="var" value="wealth"> Wealth</label>
-          </div>
-        </div>
-        <div class="control-group">
-          <label>Metric</label>
-          <div class="checkbox-group" id="metricGroup">
-            <label class="decile-toggle"><input type="checkbox" name="metric" value="shares" checked> Shares</label>
-            <label class="decile-toggle"><input type="checkbox" name="metric" value="quantiles"> Quantiles</label>
-            <label class="decile-toggle"><input type="checkbox" name="metric" value="levels"> Levels</label>
-          </div>
-        </div>
-        <div class="control-group">
-          <label>Deciles</label>
-          <div class="decile-toggles" id="decileToggles"></div>
-        </div>
-        <label class="log-toggle">
-          <input type="checkbox" id="asinhScale"> IHS transform
-        </label>
-      </div>
-      <div class="chart-container">
-        <canvas id="explorerChart"></canvas>
-      </div>
-      <p class="chart-note">Source: Bayer, Calderon &amp; Kuhn (2025). PSID implied estimates from the state-space model. Levels in trillions USD; quantiles in USD.</p>
-    </div>
   </div>
 </section>
 <hr class="section-divider">
