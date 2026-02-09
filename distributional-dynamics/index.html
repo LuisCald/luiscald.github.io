@@ -1032,7 +1032,14 @@ function initExplorerChart() {
       scales: {
         x: {
           ticks: {
-            maxTicksLimit: 16,
+            callback: function(val, idx) {
+              const label = this.getLabelForValue(val);
+              const year = parseInt(label);
+              if (label.endsWith('-Q1') && year % 5 === 0) return year;
+              return null;
+            },
+            autoSkip: false,
+            maxRotation: 0,
             font: { family: "'DM Mono', monospace", size: 11 },
             color: '#8a8a9e'
           },
