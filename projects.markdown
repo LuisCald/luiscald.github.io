@@ -6,51 +6,6 @@ permalink: /projects/
 
 # Research
 
-<style>
-  .research-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .research-list li {
-    margin-bottom: 10px;
-    transition: background-color 0.3s, color 0.3s;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  .research-list li:hover {
-    background-color: #e8f5e9;
-  }
-
-  .research-list a {
-    color: #007acc;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .research-list a:hover {
-    color: #005a99;
-  }
-
-  .paper-title {
-    font-style: italic;
-    font-weight: 600;
-  }
-
-  .meta {
-    color: gray;
-    font-size: 0.9em;
-  }
-
-  .research-list p {
-    color: black;
-    font-size: 0.9em;
-    margin-top: 5px;
-  }
-</style>
-
 <ul class="research-list">
   <li>
     <a class="paper-title" href="/distributional-dynamics/" target="_blank" rel="noopener noreferrer">Distributional Dynamics</a>

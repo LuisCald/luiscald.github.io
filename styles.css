@@ -1,47 +1,97 @@
-/* General Reset */
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-text: #1a1a2e;
+  --color-text-secondary: #555566;
+  --color-text-muted: #888899;
+  --color-link: #1a5276;
+  --color-link-hover: #0d3b5c;
+  --color-surface: #ffffff;
+  --color-surface-content: rgba(255, 255, 255, 0.92);
+  --color-surface-card: #f5f6f8;
+  --color-surface-card-hover: #eef2f7;
+  --color-footer-bg: rgba(26, 26, 46, 0.9);
+
+  /* Typography */
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-ui: 'Source Sans 3', system-ui, sans-serif;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+
+  /* Spacing (4px scale) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ==========================================================================
+   Base / Reset
+   ========================================================================== */
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   height: 100vh;
-  /* overflow: hidden; */
-  background-color: white; /* Background color for the page */
-  color: black; /* Default text color */
-  overflow: auto; /* Allow scrolling */
+  overflow: auto;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
 }
 
-.content-container {
-  display: flex; /* Align items side by side */
-  align-items: flex-start; /* Align items at the top */
-  gap: 20px; /* Space between the text and image */
+/* Heading Hierarchy */
+h1 { font-size: var(--fs-3xl); margin-bottom: var(--sp-6); }
+h2 { font-size: var(--fs-2xl); margin-bottom: var(--sp-4); }
+h3 { font-size: var(--fs-xl); margin-bottom: var(--sp-3); }
+
+/* Global Link Styles */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
-.text-block {
-  flex: 2; /* Take up more space */
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
 }
 
-.image-block {
-  flex: 1; /* Allow it to grow proportionally */
-  max-width: 300px; /* Increase max width for a larger image */
-  display: flex;
-  justify-content: center; /* Center the image inside */
-  align-items: center;
-  margin-bottom: 5px; /* Space between image and text */
-}
+/* ==========================================================================
+   Tile Background (signature animation — do not modify)
+   ========================================================================== */
 
-.profile-photo {
-  width: 100%; /* Make it responsive within the max-width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Optional: Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-}
-
-
-
-html {
-  height: 100%; /* Ensure the full page height is used */
-  overflow: hidden; /* Prevent the tiles from scrolling */
-}
-
-/* Tile Background */
 .tile-container {
   position: fixed;
   top: 0;
@@ -49,157 +99,301 @@ html {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Adjust tile size */
-  gap: 5px; /* Add spacing between tiles */
-  z-index: -1; /* Place behind other content */
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 5px;
+  z-index: -1;
 }
 
 .tile {
   width: 100%;
   height: 60px;
-  border-radius: 20px; /* Smooth rounded edges */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Elegant soft shadow */
-  transition: transform 1s ease-in-out; /* Smooth movement */
-  opacity: 0.9; /* Slight transparency */
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  transition: transform 1s ease-in-out;
+  opacity: 0.9;
+  animation: moveTile 8s ease-in-out infinite;
 }
 
-/* Tetris-Like Animation */
 @keyframes moveTile {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
 }
 
-.tile {
-  animation: moveTile 8s ease-in-out infinite; /* Continuous smooth movement */
+.tile:hover {
+  transform: scale(1.1);
+  background-color: #FFFACD;
 }
 
-/* Header and Navigation */
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
 header {
   position: relative;
-  z-index: 1; /* Base z-index for the generic header */
-  padding: 10px;
+  z-index: 1;
+  padding: var(--sp-3);
   background: none;
-  color: white;
+  color: var(--color-surface);
 }
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  background: var(--color-surface);
+  padding: var(--sp-3);
+  color: var(--color-text);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-ui);
+}
+
+.site-title {
+  font-size: var(--fs-xl);
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 4;
+}
+
+.site-title:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+.site-header a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 4;
+}
+
+.site-header a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--sp-4);
+}
+
+.nav-links.hidden {
+  display: none;
+}
+
+.nav-links.visible {
+  display: block;
+  flex-direction: column;
+}
+
+.page-link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.page-link:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  font-size: var(--fs-xl);
+  cursor: pointer;
+  padding: var(--sp-3);
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   Page Content
+   ========================================================================== */
+
+.page-content {
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: var(--sp-16);
+  background: var(--color-surface-content);
+  padding: var(--sp-6);
+  border-radius: var(--radius-md);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.page-content * {
+  pointer-events: auto;
+}
+
+/* Content Container (home page text + image layout) */
+.content-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-6);
+}
+
+.text-block {
+  flex: 2;
+}
+
+.image-block {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--sp-2);
+}
+
+.profile-photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.photo-credit {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: right;
+  margin-top: var(--sp-1);
+  font-style: italic;
+  display: block;
+}
+
+/* ==========================================================================
+   Project List (generic)
+   ========================================================================== */
+
+.project-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-item {
+  padding: var(--sp-3) var(--sp-4);
+  margin: var(--sp-2) 0;
+  background-color: var(--color-surface-card);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-base), color var(--transition-fast);
+}
+
+.project-item:hover {
+  background-color: var(--color-surface-card-hover);
+  color: var(--color-link-hover);
+}
+
+/* ==========================================================================
+   Research List (from projects page)
+   ========================================================================== */
+
+.research-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.research-list li {
+  margin-bottom: var(--sp-3);
+  transition: background-color var(--transition-base);
+  padding: var(--sp-3);
+  border-radius: var(--radius-sm);
+}
+
+.research-list li:hover {
+  background-color: var(--color-surface-card-hover);
+}
+
+.research-list a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.research-list a:hover {
+  color: var(--color-link-hover);
+}
+
+.paper-title {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.meta {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.research-list p {
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+  margin-top: var(--sp-2);
+}
+
+/* ==========================================================================
+   Error Page (404)
+   ========================================================================== */
+
+.error-container {
+  margin: var(--sp-3) auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.error-container h1 {
+  margin: var(--sp-8) 0;
+  font-size: 4em;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 5px;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
-  color: white; /* Ensure text is white */
+  padding: var(--sp-2);
+  font-weight: 600;
+  background: var(--color-footer-bg);
+  color: var(--color-surface);
   text-align: left;
 }
 
-footer-heading {
-color: white;
-font-weight: bold;
-
+footer a {
+  color: var(--color-surface);
 }
 
-/* Site-Specific Header Styles */
-.site-header {
-  position: fixed; /* Fix it to the top of the page */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 3; /* Ensure it stays above tiles and main content */
-  background: white; /* rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
-  padding: 10px;
-  color: black;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better separation */
+footer a:hover {
+  color: var(--color-surface-card-hover);
 }
 
-.site-title {
-  font-size: 24px;
-  color: black;
-  font-weight: bold;
-  text-decoration: none; /* No underline by default */
-  z-index: 4; /* Ensure title remains on top within the header */
+.footer-heading {
+  color: var(--color-surface);
+  font-weight: 700;
 }
 
-.site-title:hover {
-  text-decoration: underline; /* Underline on hover */
-}
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 
-.tile:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  background-color: #FFFACD; /* Change to Light Yellow on hover */
-}
-
-.site-header a {
-  color: black;
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Make links stand out */
-  z-index: 4; /* Ensure links remain above tiles */
-}
-
-.site-header a:hover {
-  text-decoration: underline; /* Underline on hover */
-}
-
-/* Page Content */
-.page-content {
-  position: relative;
-  margin-top: 80px; /* Add space between header and body */
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
-  padding: 20px;
-  border-radius: 10px; /* Rounded corners for aesthetics */
-  z-index: 1; /* Ensure content is above tiles but below the header */
-  pointer-events: none; /* Allow pointer events to pass through */
-}
-
-.page-content * {
-  pointer-events: auto; /* Re-enable pointer events for child elements */
-}
-
-/* Project List Styling */
-.project-list {
-  list-style-type: none; /* Remove default list styling */
-  padding: 0;
-  margin: 0;
-}
-
-.project-item {
-  padding: 10px 15px;
-  margin: 5px 0;
-  background-color: #f0f0f0; /* Default background color */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s, color 0.1s; /* Smooth transition for hover effect */
-}
-
-.project-item:hover {
-  background-color: #d1e7fd; /* Highlight background color */
-  color: #003366; /* Highlight text color */
-}
-
-/* Page Link Styling */
-.page-link {
-  color: black;
-  text-decoration: none; /* Remove the underline */
-  font-weight: bold; /* Make text bold */
-}
-
-.page-link:hover {
-  text-decoration: underline; /* Add underline on hover */
-}
-
-/* For devices with max width of 768px (tablets and smaller) */
 @media (max-width: 768px) {
   .site-header {
-    font-size: 18px; /* Smaller header text */
-    padding: 10px;
+    font-size: 18px;
+    padding: var(--sp-3);
   }
 
   .tile-container {
@@ -208,95 +402,70 @@ font-weight: bold;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure tiles are behind content */
-  }
-  
-
-  .tile-container {
-    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr)); /* Smaller tiles */
+    z-index: -1;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
   }
 
   .page-content {
-    padding: 10px; /* Reduce padding for content */
-  }
-}
-
-/* For devices with max width of 480px (mobile phones) */
-@media (max-width: 480px) {
-  .site-header {
-    font-size: 16px; /* Even smaller header text */
-    padding: 8px;
+    padding: var(--sp-3);
   }
 
-  .site-title {
-    font-size: 20px; /* Adjust title size */
+  .content-container {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .tile-container {
-    grid-template-columns: repeat(auto-fit, minmax(15px, 1fr)); /* Smaller tiles for mobile */
+  .image-block {
+    max-width: 50%;
   }
 
-  .page-content {
-    padding: 5px; /* Reduce padding even further */
-    font-size: 14px; /* Smaller content text */
-  }
-}
-
-
-/* Navigation Links Styling */
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex; /* Inline layout for larger screens */
-  gap: 15px; /* Spacing between links */
-}
-
-.nav-links.hidden {
-  display: none; /* Hidden by default for mobile */
-}
-
-.nav-links.visible {
-  display: block; /* Show as a block for mobile */
-  flex-direction: column; /* Stack links vertically on mobile */
-}
-
-/* Hamburger Menu Styling */
-.hamburger-menu {
-  display: none; /* Hidden by default */
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px;
-  color: black;
-}
-
-/* Show Hamburger Menu and Hide Inline Nav on Mobile */
-@media (max-width: 768px) {
   .hamburger-menu {
-    display: block; /* Show hamburger menu */
+    display: block;
   }
 
   .nav-links {
-    display: none; /* Hide inline navigation by default */
+    display: none;
   }
 
   .nav-links.visible {
-    display: block; /* Show stacked links when toggled */
+    display: block;
   }
 }
 
-/* Show Inline Navigation for Larger Screens */
+@media (max-width: 480px) {
+  .site-header {
+    font-size: 16px;
+    padding: var(--sp-2);
+  }
+
+  .site-title {
+    font-size: 20px;
+  }
+
+  .tile-container {
+    grid-template-columns: repeat(auto-fit, minmax(15px, 1fr));
+  }
+
+  .page-content {
+    padding: var(--sp-2);
+    font-size: var(--fs-sm);
+  }
+}
+
 @media (min-width: 769px) {
   .nav-links {
-    display: flex; /* Show inline navigation for desktops */
+    display: flex;
   }
 
   .hamburger-menu {
-    display: none; /* Hide hamburger menu for larger screens */
+    display: none;
   }
 }
 
-/* Chess Page Specific Styles */
+/* ==========================================================================
+   Chess Page Specific Styles (do not modify)
+   ========================================================================== */
+
 #board {
   margin: 20px auto;
 }
@@ -330,24 +499,4 @@ font-weight: bold;
 
 #games ul li:hover {
   color: #005a99;
-}
-
-@media (max-width: 768px) {
-  .content-container {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center the content */
-  }
-
-  .image-block {
-    max-width: 50%; /* Adjust image width */
-  }
-}
-
-.photo-credit {
-  font-size: 5px;  /* Small text */
-  color: gray;       /* Light gray font */
-  text-align: right; 
-  margin-top: 5px;   /* Small space above */
-  font-style: italic; /* Optional: makes it look more professional */
-  display: block;     /* Ensure it's not inline */
 }
