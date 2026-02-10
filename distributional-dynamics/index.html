@@ -375,6 +375,84 @@ p:last-child { margin-bottom: 0; }
   line-height: 1.5;
 }
 
+/* Range slider */
+.range-slider {
+  position: relative;
+  margin: 16px 0 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.range-slider-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+.slider-track {
+  position: relative;
+  height: 24px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.slider-recession {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.08);
+  pointer-events: none;
+}
+.slider-selection {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(37,99,176,0.18);
+  border-left: 2px solid var(--accent-bright);
+  border-right: 2px solid var(--accent-bright);
+  pointer-events: none;
+}
+.slider-handle {
+  position: absolute;
+  top: -3px;
+  width: 14px;
+  height: 30px;
+  background: var(--accent-bright);
+  border: 2px solid #fff;
+  border-radius: 4px;
+  cursor: ew-resize;
+  z-index: 2;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+  transform: translateX(-50%);
+}
+.slider-handle:hover, .slider-handle.active {
+  background: var(--accent-glow);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.slider-year-labels {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 18px;
+  margin-top: 2px;
+}
+.slider-year-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+.range-slider-hint {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--ink-faint);
+  text-align: right;
+  margin-top: 2px;
+}
+
 .log-toggle {
   display: flex;
   align-items: center;
@@ -694,6 +772,16 @@ footer .footer-bottom .brand {
       <div class="chart-container">
         <canvas id="explorerChart"></canvas>
       </div>
+      <div class="range-slider" id="rangeSlider">
+        <div class="range-slider-label">Year range</div>
+        <div class="slider-track" id="sliderTrack">
+          <div class="slider-selection" id="sliderSelection"></div>
+          <div class="slider-handle" id="handleLeft"></div>
+          <div class="slider-handle" id="handleRight"></div>
+        </div>
+        <div class="slider-year-labels" id="sliderYearLabels"></div>
+        <div class="range-slider-hint">Drag handles to zoom &middot; double-click to reset</div>
+      </div>
       <p class="chart-note">Source: Bayer, Calderon &amp; Kuhn (2025). PSID implied estimates from the state-space model. Levels in trillions USD; quantiles in USD.</p>
     </div>
   </div>
@@ -957,6 +1045,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   initExplorerChart();
+  initRangeSlider();
 
   // Variable checkboxes: enforce single-select
   document.querySelectorAll('input[name="var"]').forEach(el => {
@@ -1062,16 +1151,20 @@ function initExplorerChart() {
   updateExplorerChart();
 }
 
+// Range slider state
+let rangeStartIdx = 0;
+let rangeEndIdx = 246; // DATA.t.length - 1
+
 function updateExplorerChart() {
   const variable = document.querySelector('input[name="var"]:checked').value;
   const metric = document.querySelector('input[name="metric"]:checked').value;
   const checkedDeciles = [...document.querySelectorAll('#decileToggles input:checked')].map(el => el.dataset.decile);
   const useAsinh = document.getElementById('asinhScale').checked;
 
-  const labels = DATA.t;
+  const labels = DATA.t.slice(rangeStartIdx, rangeEndIdx + 1);
   const datasets = checkedDeciles.map(d => {
     const idx = DECILES.indexOf(d);
-    let rawData = DATA[metric][variable][d];
+    let rawData = DATA[metric][variable][d].slice(rangeStartIdx, rangeEndIdx + 1);
     let data = useAsinh ? rawData.map(v => v != null ? Math.asinh(v) : null) : rawData;
     return {
       label: DECILE_LABELS[idx],
@@ -1097,6 +1190,137 @@ function updateExplorerChart() {
   };
 
   explorerChart.update('none');
+}
+
+// ═══ RANGE SLIDER ═══
+function initRangeSlider() {
+  const totalQuarters = DATA.t.length; // 247
+  const track = document.getElementById('sliderTrack');
+  const selection = document.getElementById('sliderSelection');
+  const handleL = document.getElementById('handleLeft');
+  const handleR = document.getElementById('handleRight');
+  const yearLabelsContainer = document.getElementById('sliderYearLabels');
+
+  // Add recession bands to the track
+  RECESSIONS.forEach(rec => {
+    const si = DATA.t.indexOf(rec[0]);
+    const ei = DATA.t.indexOf(rec[1]);
+    if (si >= 0 && ei >= 0) {
+      const span = document.createElement('div');
+      span.className = 'slider-recession';
+      span.style.left = (si / (totalQuarters - 1) * 100) + '%';
+      span.style.width = ((ei - si) / (totalQuarters - 1) * 100) + '%';
+      track.appendChild(span);
+    }
+  });
+
+  // Year labels every 10 years
+  [1970, 1980, 1990, 2000, 2010, 2020].forEach(year => {
+    const q = year + '-Q1';
+    const idx = DATA.t.indexOf(q);
+    if (idx >= 0) {
+      const lbl = document.createElement('span');
+      lbl.className = 'slider-year-label';
+      lbl.textContent = year;
+      lbl.style.left = (idx / (totalQuarters - 1) * 100) + '%';
+      yearLabelsContainer.appendChild(lbl);
+    }
+  });
+
+  function idxToPercent(idx) {
+    return idx / (totalQuarters - 1) * 100;
+  }
+
+  function percentToIdx(pct) {
+    return Math.round(pct / 100 * (totalQuarters - 1));
+  }
+
+  function updateSliderVisuals() {
+    const lPct = idxToPercent(rangeStartIdx);
+    const rPct = idxToPercent(rangeEndIdx);
+    selection.style.left = lPct + '%';
+    selection.style.width = (rPct - lPct) + '%';
+    handleL.style.left = lPct + '%';
+    handleR.style.left = rPct + '%';
+  }
+
+  function getPointerPct(e) {
+    const rect = track.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    return Math.max(0, Math.min(100, (clientX - rect.left) / rect.width * 100));
+  }
+
+  const MIN_QUARTERS = 8;
+  let dragging = null; // 'left', 'right', or null
+
+  function onPointerDown(e, which) {
+    e.preventDefault();
+    dragging = which;
+    document.body.style.cursor = 'ew-resize';
+    if (which === 'left') handleL.classList.add('active');
+    else handleR.classList.add('active');
+  }
+
+  function onPointerMove(e) {
+    if (!dragging) return;
+    e.preventDefault();
+    const pct = getPointerPct(e);
+    const idx = percentToIdx(pct);
+    if (dragging === 'left') {
+      rangeStartIdx = Math.max(0, Math.min(idx, rangeEndIdx - MIN_QUARTERS));
+    } else {
+      rangeEndIdx = Math.min(totalQuarters - 1, Math.max(idx, rangeStartIdx + MIN_QUARTERS));
+    }
+    updateSliderVisuals();
+    updateExplorerChart();
+  }
+
+  function onPointerUp() {
+    if (!dragging) return;
+    handleL.classList.remove('active');
+    handleR.classList.remove('active');
+    document.body.style.cursor = '';
+    dragging = null;
+  }
+
+  // Mouse events
+  handleL.addEventListener('mousedown', e => onPointerDown(e, 'left'));
+  handleR.addEventListener('mousedown', e => onPointerDown(e, 'right'));
+  document.addEventListener('mousemove', onPointerMove);
+  document.addEventListener('mouseup', onPointerUp);
+
+  // Touch events
+  handleL.addEventListener('touchstart', e => onPointerDown(e, 'left'), { passive: false });
+  handleR.addEventListener('touchstart', e => onPointerDown(e, 'right'), { passive: false });
+  document.addEventListener('touchmove', onPointerMove, { passive: false });
+  document.addEventListener('touchend', onPointerUp);
+
+  // Click on track to move nearest handle
+  track.addEventListener('click', function(e) {
+    if (dragging) return;
+    const pct = getPointerPct(e);
+    const idx = percentToIdx(pct);
+    const distL = Math.abs(idx - rangeStartIdx);
+    const distR = Math.abs(idx - rangeEndIdx);
+    if (distL <= distR) {
+      rangeStartIdx = Math.max(0, Math.min(idx, rangeEndIdx - MIN_QUARTERS));
+    } else {
+      rangeEndIdx = Math.min(totalQuarters - 1, Math.max(idx, rangeStartIdx + MIN_QUARTERS));
+    }
+    updateSliderVisuals();
+    updateExplorerChart();
+  });
+
+  // Double-click to reset
+  track.addEventListener('dblclick', function() {
+    rangeStartIdx = 0;
+    rangeEndIdx = totalQuarters - 1;
+    updateSliderVisuals();
+    updateExplorerChart();
+  });
+
+  // Initial render
+  updateSliderVisuals();
 }
 
 // ═══ CODE TAB SWITCHER ═══
