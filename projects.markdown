@@ -11,6 +11,7 @@ permalink: /projects/
     <a class="paper-title" href="/distributional-dynamics/" target="_blank" rel="noopener noreferrer">Distributional Dynamics</a>
     <div class="meta">Authors: Luis Calderon, Christian Bayer and Moritz Kuhn</div>
     <div class="meta">Status: CEPR Discussion Paper 19829</div>
+    <div class="meta"><a href="https://lnkd.in/eDh4i47Z" target="_blank" rel="noopener noreferrer">Video presentation</a></div>
     <p>We develop a new method for deriving high-frequency synthetic distributions of consumption, income, and wealth. Modern theories of macroeconomic dynamics identify the joint distribution of consumption, income, and wealth as a key determinant of aggregate dynamics. Our novel method allows us to study their distributional dynamics over time. The method can incorporate different microdata sources, regardless of their frequency and coverage of variables, to generate high-frequency synthetic distributional data. We extend existing methods by allowing for more flexible data inputs. The core of the method is to treat the distributional data as a time series of functions whose underlying factor structure follows a state-space model, which we estimate using Bayesian techniques. We show that the novel method provides the high-frequency distributional data needed to understand better the dynamics of consumption and its distribution over the business cycle.</p>
   </li>
   <li>
@@ -27,6 +28,11 @@ permalink: /projects/
   <li>
     <a class="paper-title" href="project1.pdf">Distributional Counterfactuals</a>
     <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Status: Work in progress</div>
+  </li>
+  <li>
+    <a class="paper-title" href="project1.pdf">Job Levels II</a>
+    <div class="meta">Authors: Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
     <div class="meta">Status: Work in progress</div>
   </li>
   <li>
