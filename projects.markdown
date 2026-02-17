@@ -32,7 +32,7 @@ permalink: /projects/
   </li>
   <li>
     <a class="paper-title" href="project1.pdf">Job Levels II</a>
-    <div class="meta">Authors: Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
+    <div class="meta">Authors: Luis Calderon, Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
     <div class="meta">Status: Work in progress</div>
   </li>
   <li>
