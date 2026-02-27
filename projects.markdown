@@ -21,7 +21,7 @@ permalink: /projects/
     <p>We provide a unified implementation of existing asymptotic theory that computes Conley-style spatial HAC standard errors for a wide range of commonly used (non-linear) estimators. We cover OLS, logit, probit, Poisson, and negative binomial regressions, as well as the fixed-effects estimators <em>areg</em> and <em>reghdfe</em>—extending commonly used publicly available routines (currently limited to linear models) to nonlinear M-estimators and fixed-effects workflows. We provide Stata and Python software implementing the procedure.</p>
   </li>
   <li>
-    <a class="paper-title" href="project1.pdf">The Role of the Distribution for Monetary Policy</a>
+    <a class="paper-title" href="project1.pdf">Monetary Policy According to Data</a>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Draft coming soon!</div>
   </li>
