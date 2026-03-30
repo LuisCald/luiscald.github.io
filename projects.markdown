@@ -38,6 +38,6 @@ permalink: /projects/
   <li>
     <a class="paper-title" href="project1.pdf">Unequal Barrels and Slick Consequences: The Distributional Impact of Oil Shocks</a>
     <div class="meta">Authors: Luis Calderon and Theo Drossidis</div>
-    <div class="meta">Status: Work in progress</div>
+    <div class="meta">Status: Draft coming soon!</div>
   </li>
 </ul>
