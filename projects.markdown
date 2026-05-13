@@ -36,8 +36,8 @@ permalink: /projects/
     <div class="meta">Status: Work in progress</div>
   </li>
   <li>
-    <a class="paper-title" href="project1.pdf">The Distributional Impact of Oil Supply Shocks</a>
+    <a class="paper-title" href="/pdfs/Calderon_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Not All Oil Supply Shocks Are Alike: Macroeconomic Mechanism and Distributional Incidence</a>
     <div class="meta">Authors: Luis Calderon</div>
-    <div class="meta">Status: Draft coming soon!</div>
+    <div class="meta">Status: Preliminary draft (May 2026)</div>
   </li>
 </ul>
