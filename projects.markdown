@@ -15,6 +15,12 @@ permalink: /projects/
     <p>We develop a new method for deriving high-frequency synthetic distributions of consumption, income, and wealth. Modern theories of macroeconomic dynamics identify the joint distribution of consumption, income, and wealth as a key determinant of aggregate dynamics. Our novel method allows us to study their distributional dynamics over time. The method can incorporate different microdata sources, regardless of their frequency and coverage of variables, to generate high-frequency synthetic distributional data. We extend existing methods by allowing for more flexible data inputs. The core of the method is to treat the distributional data as a time series of functions whose underlying factor structure follows a state-space model, which we estimate using Bayesian techniques. We show that the novel method provides the high-frequency distributional data needed to understand better the dynamics of consumption and its distribution over the business cycle.</p>
   </li>
   <li>
+    <a class="paper-title" href="/pdfs/Calderon_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Not All Oil Supply Shocks are Alike: The Macroeconomic and Distributional Impact of Oil Supply Shocks</a>
+    <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Status: Preliminary draft (May 2026)</div>
+    <p>Oil supply shocks shape U.S. inequality, and <em>which</em> oil supply shock matters for who bears the cost. In a Bayesian VAR that embeds the joint distribution of U.S. household income, consumption, and wealth alongside the standard oil-market block, sudden production shortfalls (Baumeister &amp; Hamilton, 2019) raise inequality, whereas oil supply news (K&auml;nzig, 2021) mostly reduces it. These differences are not visible in the aggregate dynamics, which appear similar across shocks. A causal mediation analysis (Dufour, 2024) of these aggregate dynamics shows these shocks operate through distinct channels, and it is this mechanism wedge, rather than the aggregate footprint, that determines who bears the cost. Including the joint distribution is also not cosmetic: it helps identify the shocks themselves, and hence its inclusion <em>gets the aggregate IRFs right</em>.</p>
+  </li>
+  <li>
     <a class="paper-title" href="/spacereg/" target="_blank" rel="noopener noreferrer">Spatial standard errors for several commonly used M-estimators</a>
     <div class="meta">Authors: Luis Calderon and Leander Heldring</div>
     <div class="meta">Status: R&amp;R at the International Journal for Computational Economics and Econometrics</div>
@@ -26,7 +32,7 @@ permalink: /projects/
     <div class="meta">Status: Draft coming soon!</div>
   </li>
   <li>
-    <a class="paper-title" href="project1.pdf">Distributional Counterfactuals</a>
+    <a class="paper-title" href="project1.pdf">Oil and Monetary Policy</a>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Work in progress</div>
   </li>
@@ -34,10 +40,5 @@ permalink: /projects/
     <a class="paper-title" href="project1.pdf">Job Levels II</a>
     <div class="meta">Authors: Luis Calderon, Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
     <div class="meta">Status: Work in progress</div>
-  </li>
-  <li>
-    <a class="paper-title" href="/pdfs/Calderon_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Not All Oil Supply Shocks Are Alike: Macroeconomic Mechanism and Distributional Incidence</a>
-    <div class="meta">Authors: Luis Calderon</div>
-    <div class="meta">Status: Preliminary draft (May 2026)</div>
   </li>
 </ul>
