@@ -27,15 +27,15 @@ permalink: /projects/
     <p>We provide a unified implementation of existing asymptotic theory that computes Conley-style spatial HAC standard errors for a wide range of commonly used (non-linear) estimators. We cover OLS, logit, probit, Poisson, and negative binomial regressions, as well as the fixed-effects estimators <em>areg</em> and <em>reghdfe</em>—extending commonly used publicly available routines (currently limited to linear models) to nonlinear M-estimators and fixed-effects workflows. We provide Stata and Python software implementing the procedure.</p>
   </li>
   <li>
-    <a class="paper-title" href="project1.pdf">Monetary Policy According to Data</a>
-    <div class="meta">Authors: Luis Calderon</div>
-    <div class="meta">Status: Draft coming soon!</div>
-  </li>
-  <li>
     <a class="paper-title">Oil Supply Shocks and Monetary Policy</a>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Work in progress</div>
     <p>I revisit the role of monetary policy in the transmission of oil supply shocks within a single Bayesian VAR that jointly identifies a K&auml;nzig (2021) oil supply news shock and six orthogonal monetary policy shocks. I combine the causal mediation framework of Dufour and Wang (2024), to recover what the Federal Reserve's reaction function loads on, with the sufficient-statistics counterfactual of Caravello, McKay and Wolf (2024), to evaluate <em>three</em> alternative rules: a nominal rate peg, strict CPI-inflation targeting, and an optimal dual-mandate rule. Four findings emerge. (i) Aggregate responses are largely insensitive to the rule at short constraint horizons, with the Fed reacting primarily to inflation, the oil price, and demand-side mediators, and negligibly to the oil-market block. (ii) Policy duration is what discriminates the rules at the macro level: held for only a few quarters the three rules look near-identical, but enforced over the full twenty-quarter horizon the rate peg and dual-mandate converge to one another and deliver materially better output, inflation, and unemployment stability than the realized path. (iii) Distributional responses discriminate even at short horizons: the dual-mandate rule tracks the realized Gini paths, while the rate peg and strict inflation targeting both compress income, wealth, and consumption inequality, with strict-&pi; amplifying the realized compression by roughly twenty per cent for income, two-and-a-half-fold for consumption, and threefold for wealth. (iv) The strict-&pi; compression is driven by redistribution toward the bottom of the distribution rather than top-tail destruction. The cross-section, and the duration over which a rule is held, thus discriminate between rules that headline macro aggregates at short horizons cannot.</p>
+  </li>
+  <li>
+    <a class="paper-title" href="project1.pdf">Monetary Policy According to Data</a>
+    <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Status: Draft coming soon!</div>
   </li>
   <li>
     <a class="paper-title" href="project1.pdf">Job Levels II</a>
