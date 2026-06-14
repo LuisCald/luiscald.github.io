@@ -18,6 +18,7 @@ permalink: /projects/
     <a class="paper-title" href="/pdfs/Calderon_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Not All Oil Supply Shocks are Alike: The Macroeconomic and Distributional Impact of Oil Supply Shocks</a>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Preliminary draft (May 2026)</div>
+    <div class="meta"><a href="/pdfs/poster_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Poster</a> (CESifo Macro with Micro Data)</div>
     <p>Oil supply shocks shape U.S. inequality, and <em>the type of</em> oil supply shock matters for who bears the cost. In a Bayesian VAR that embeds the joint distribution of U.S. household income, consumption, and wealth alongside a standard oil-market block, sudden production shortfalls (Baumeister and Hamilton, 2019) raise inequality, whereas oil supply news (K&auml;nzig, 2021) mostly reduces it. These differences are not visible in the aggregate dynamics, which appear similar across shocks. A causal mediation analysis (Dufour and Wang, 2024) of these aggregate dynamics shows these shocks operate through distinct channels and it is this mechanism wedge, rather than the aggregate footprint, that determines who bears the cost. The analysis shares the view of Kilian and Lewis (2011) that policy responses should depend on the underlying causes of oil price shocks.</p>
   </li>
   <li>
