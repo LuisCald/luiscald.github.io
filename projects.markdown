@@ -53,4 +53,9 @@ permalink: /projects/
     <div class="meta">Authors: Luis Calderon, Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
     <div class="meta">Status: Work in progress</div>
   </li>
+  <li>
+    <span class="paper-title">The Fiscal Roots of Wealth Inequality: Corporate Concentration and the Eroding Tax Base</span>
+    <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Status: Work in progress</div>
+  </li>
 </ul>
