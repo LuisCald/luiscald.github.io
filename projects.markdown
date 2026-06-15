@@ -33,13 +33,23 @@ permalink: /projects/
     <div class="meta">Status: R&amp;R at the International Journal for Computational Economics and Econometrics</div>
     <p>We provide a unified implementation of existing asymptotic theory that computes Conley-style spatial HAC standard errors for a wide range of commonly used (non-linear) estimators. We cover OLS, logit, probit, Poisson, and negative binomial regressions, as well as the fixed-effects estimators <em>areg</em> and <em>reghdfe</em>—extending commonly used publicly available routines (currently limited to linear models) to nonlinear M-estimators and fixed-effects workflows. We provide Stata and Python software implementing the procedure.</p>
   </li>
+</ul>
+
+## Works in progress
+
+<ul class="research-list">
   <li>
-    <a class="paper-title" href="project1.pdf">Monetary Policy According to Data</a>
+    <span class="paper-title">Distributional Dynamics: Germany</span>
+    <div class="meta">Authors: Luis Calderon, Christian Bayer and Moritz Kuhn</div>
+    <div class="meta">Status: Work in progress</div>
+  </li>
+  <li>
+    <span class="paper-title">Monetary Policy According to Data</span>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Draft coming soon!</div>
   </li>
   <li>
-    <a class="paper-title" href="project1.pdf">Job Levels II</a>
+    <span class="paper-title">Job Levels II</span>
     <div class="meta">Authors: Luis Calderon, Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
     <div class="meta">Status: Work in progress</div>
   </li>
