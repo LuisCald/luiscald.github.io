@@ -63,7 +63,9 @@ permalink: /projects/
     <a class="paper-title" href="/pdfs/lg_wage_growth_slides.pdf" target="_blank" rel="noopener noreferrer">Sectoral Job Levels and Productivity</a>
     <div class="meta">Authors: Luis Calderon, Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
     <div class="meta">Status: Work in progress</div>
-    <div class="meta"><a href="/pdfs/lg_wage_growth_slides.pdf" target="_blank" rel="noopener noreferrer">Slides</a></div>
+    <div class="paper-links">
+      <a class="paper-link" href="/pdfs/lg_wage_growth_slides.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+    </div>
   </li>
   <li>
     <span class="paper-title">The Fiscal Roots of Wealth Inequality: Corporate Concentration and the Eroding Tax Base</span>
