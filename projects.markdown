@@ -44,6 +44,11 @@ permalink: /projects/
     <a class="paper-title" href="/spacereg/" target="_blank" rel="noopener noreferrer">Spatial standard errors for several commonly used M-estimators</a>
     <div class="meta">Authors: Luis Calderon and Leander Heldring</div>
     <div class="meta">Status: R&amp;R at the International Journal for Computational Economics and Econometrics</div>
+    <div class="paper-links">
+      <a class="paper-link" href="/pdfs/Conley_nonlinear.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+      <a class="paper-link" href="/spacereg/" target="_blank" rel="noopener noreferrer">Website</a>
+      <a class="paper-link" href="https://github.com/LuisCald/spacereg" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
     <p>We provide a unified implementation of existing asymptotic theory that computes Conley-style spatial HAC standard errors for a wide range of commonly used (non-linear) estimators. We cover OLS, logit, probit, Poisson, and negative binomial regressions, as well as the fixed-effects estimators <em>areg</em> and <em>reghdfe</em>—extending commonly used publicly available routines (currently limited to linear models) to nonlinear M-estimators and fixed-effects workflows. We provide Stata and Python software implementing the procedure.</p>
   </li>
 </ul>
