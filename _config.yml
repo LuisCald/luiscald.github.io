@@ -31,8 +31,6 @@ github_username: luiscald
 nav:
   - title: "About"
     url: "/about/"
-  - title: "CV"
-    url: "/cv/"
   - title: "Research"
     url: "/projects/"
   - title: "BASEforHANK"

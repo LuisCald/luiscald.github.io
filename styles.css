@@ -248,6 +248,7 @@ header {
   flex: 1;
   max-width: 300px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: var(--sp-2);
@@ -258,6 +259,11 @@ header {
   height: auto;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+}
+
+.cv-link {
+  margin-top: var(--sp-2);
+  text-align: center;
 }
 
 .photo-credit {
