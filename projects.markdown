@@ -6,9 +6,9 @@ permalink: /projects/
 
 # Research
 
-## Job market paper
-
-<ul class="research-list">
+<section class="side-section">
+  <h2 class="side-label">Job Market Paper</h2>
+  <ul class="research-list">
   <li>
     <a class="paper-title" href="/pdfs/Calderon_OilMonetaryPolicy.pdf" target="_blank" rel="noopener noreferrer">What Monetary Policy Rules Do, and Where You Can See It</a>
     <div class="meta">Authors: Luis Calderon</div>
@@ -19,10 +19,11 @@ permalink: /projects/
     <p>This paper documents the role of monetary policy in the transmission of oil supply shocks to the U.S. macroeconomy and to the joint distribution of household income, consumption, and wealth. A single Bayesian VAR identifies a K&auml;nzig (2021) oil supply news shock alongside monetary policy shocks that span the entire policy spectrum &mdash; the short rate, forward guidance, and the balance sheet. The causal mediation framework of Dufour and Wang (2024) recovers which channels the Federal Reserve's reaction function loads on; the sufficient-statistics counterfactual of Caravello, McKay and Wolf (2024) evaluates a nominal rate peg, strict CPI-inflation targeting, and an optimal dual-mandate rule. At short constraint horizons, aggregate responses are similar across rules; differences emerge with the duration over which a rule is enforced, and in the cross-section at all horizons, where strict inflation targeting compresses income, consumption, and wealth inequality relative to the realized path, driven by gains at the bottom of the distribution. Because every distributional statistic is a linear functional of the system, the framework extends to a spectrum of rules with explicitly distributional objectives &mdash; from a single mandate that targets inequality alone, to a triple mandate that weighs it against inflation and unemployment, to a constraint protecting the bottom half of the consumption distribution. Companion exercises assess the credibility of the counterfactuals under departures from full-information rational expectations and compare the policy cost of the rules across oil-shock types &mdash; belief-driven supply news versus realized physical shortfalls.</p>
   </li>
 </ul>
+</section>
 
-## Working papers
-
-<ul class="research-list">
+<section class="side-section">
+  <h2 class="side-label">Working Papers</h2>
+  <ul class="research-list">
   <li>
     <a class="paper-title" href="/distributional-dynamics/" target="_blank" rel="noopener noreferrer">Distributional Dynamics</a>
     <div class="meta">Authors: Luis Calderon, Christian Bayer and Moritz Kuhn</div>
@@ -59,10 +60,11 @@ permalink: /projects/
     <p>We provide a unified implementation of existing asymptotic theory that computes Conley-style spatial HAC standard errors for a wide range of commonly used (non-linear) estimators. We cover OLS, logit, probit, Poisson, and negative binomial regressions, as well as the fixed-effects estimators <em>areg</em> and <em>reghdfe</em>—extending commonly used publicly available routines (currently limited to linear models) to nonlinear M-estimators and fixed-effects workflows. We provide Stata and Python software implementing the procedure.</p>
   </li>
 </ul>
+</section>
 
-## Works in progress
-
-<ul class="research-list">
+<section class="side-section">
+  <h2 class="side-label">Works in Progress</h2>
+  <ul class="research-list">
   <li>
     <span class="paper-title">Distributional Dynamics: Germany</span>
     <div class="meta">Authors: Luis Calderon, Christian Bayer and Moritz Kuhn</div>
@@ -92,3 +94,4 @@ permalink: /projects/
     <div class="meta">Status: Work in progress</div>
   </li>
 </ul>
+</section>
