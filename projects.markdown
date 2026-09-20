@@ -10,13 +10,9 @@ permalink: /projects/
   <h2 class="side-label">Job Market Paper</h2>
   <ul class="research-list">
   <li>
-    <a class="paper-title" href="/pdfs/Calderon_OilMonetaryPolicy.pdf" target="_blank" rel="noopener noreferrer">What Monetary Policy Rules Do, and Where You Can See It</a>
+    <span class="paper-title">What Monetary Policy Rules Do, and Where You Can See It</span>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Version: June 2026</div>
-    <div class="paper-links">
-      <a class="paper-link" href="/pdfs/Calderon_OilMonetaryPolicy.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
-    </div>
-    <p>This paper documents the role of monetary policy in the transmission of oil supply shocks to the U.S. macroeconomy and to the joint distribution of household income, consumption, and wealth. A single Bayesian VAR identifies a K&auml;nzig (2021) oil supply news shock alongside monetary policy shocks that span the entire policy spectrum &mdash; the short rate, forward guidance, and the balance sheet. The causal mediation framework of Dufour and Wang (2024) recovers which channels the Federal Reserve's reaction function loads on; the sufficient-statistics counterfactual of Caravello, McKay and Wolf (2024) evaluates a nominal rate peg, strict CPI-inflation targeting, and an optimal dual-mandate rule. At short constraint horizons, aggregate responses are similar across rules; differences emerge with the duration over which a rule is enforced, and in the cross-section at all horizons, where strict inflation targeting compresses income, consumption, and wealth inequality relative to the realized path, driven by gains at the bottom of the distribution. Because every distributional statistic is a linear functional of the system, the framework extends to a spectrum of rules with explicitly distributional objectives &mdash; from a single mandate that targets inequality alone, to a triple mandate that weighs it against inflation and unemployment, to a constraint protecting the bottom half of the consumption distribution. Companion exercises assess the credibility of the counterfactuals under departures from full-information rational expectations and compare the policy cost of the rules across oil-shock types &mdash; belief-driven supply news versus realized physical shortfalls.</p>
   </li>
 </ul>
 </section>
