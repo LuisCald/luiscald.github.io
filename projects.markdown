@@ -12,7 +12,6 @@ permalink: /projects/
   <li>
     <span class="paper-title">What Monetary Policy Rules Do, and Where You Can See It</span>
     <div class="meta">Authors: Luis Calderon</div>
-    <div class="meta">Version: June 2026</div>
   </li>
 </ul>
 </section>
