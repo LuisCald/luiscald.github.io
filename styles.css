@@ -261,6 +261,13 @@ header {
   box-shadow: var(--shadow-md);
 }
 
+.market-note {
+  border-left: 3px solid var(--color-link);
+  padding: var(--sp-2) var(--sp-3);
+  background-color: var(--color-surface-card-hover);
+  border-radius: var(--radius-sm);
+}
+
 .cv-link {
   margin-top: var(--sp-2);
   text-align: center;
