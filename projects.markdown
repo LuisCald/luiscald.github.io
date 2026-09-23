@@ -10,7 +10,7 @@ permalink: /projects/
   <h2 class="side-label">Job Market Paper</h2>
   <ul class="research-list">
   <li>
-    <span class="paper-title">What Monetary Policy Rules Do, and Where You Can See It</span>
+    <span class="paper-title">Would anything change if the central bank cared about inequality?</span>
     <div class="meta">Authors: Luis Calderon</div>
   </li>
 </ul>
