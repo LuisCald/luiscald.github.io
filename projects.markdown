@@ -74,11 +74,6 @@ permalink: /projects/
     </div>
   </li>
   <li>
-    <span class="paper-title">Monetary Policy According to Data</span>
-    <div class="meta">Authors: Luis Calderon</div>
-    <div class="meta">Status: Draft coming soon!</div>
-  </li>
-  <li>
     <span class="paper-title">Household Debt Dilution</span>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Work in progress</div>
