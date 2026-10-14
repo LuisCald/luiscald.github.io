@@ -6,9 +6,9 @@ permalink: /
 
 <div class="content-container">
   <div class="text-block">
-    <p>Hello, and thank you for visiting! I am a <b>Postdoctoral Researcher</b> in economics at the <b>University of Bonn</b>, specializing in macroeconomics. I have completed my PhD only recently, also at the University of Bonn (<b>Summer 2026</b>).</p>
-    <p><b>Job market paper:</b> <a href="/distributional-dynamics/">Distributional Dynamics</a>, with Christian Bayer and Moritz Kuhn (CEPR Discussion Paper 19829). <a href="/pdfs/BCK_DD.pdf" target="_blank" rel="noopener noreferrer">Paper</a>.</p>
+    <p>Hello, and thank you for visiting! I am a <b>Postdoctoral Researcher</b> in economics at the <b>University of Bonn</b>. I have completed my PhD only recently, also at the University of Bonn (<b>Summer 2026</b>).</p>
     <p>My research focuses on <b>Macroeconomics</b>, <b>Inequality</b>, and <b>Monetary/Fiscal Policy</b>.</p>
+    <p class="jmp-cta"><a class="jmp-button" href="/#research">Job Market Paper</a></p>
   </div>
 
   <div class="image-block">

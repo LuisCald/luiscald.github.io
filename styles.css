@@ -286,6 +286,29 @@ html {
 }
 
 /* Contact icon row under the photo */
+.jmp-cta {
+  margin-top: var(--sp-6);
+}
+
+.jmp-button {
+  display: inline-block;
+  padding: var(--sp-3) var(--sp-6);
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-link);
+  border: 1.5px solid var(--color-link);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.jmp-button:hover,
+.jmp-button:focus-visible {
+  background-color: var(--color-link);
+  color: #fff;
+  text-decoration: none;
+}
+
 .icon-row {
   display: flex;
   justify-content: center;
