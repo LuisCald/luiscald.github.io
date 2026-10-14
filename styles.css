@@ -273,6 +273,10 @@ html {
   margin-top: calc(var(--sp-6) * 2);
 }
 
+.page-section > h2 {
+  font-size: calc(var(--fs-2xl) - 2.67px); /* 2pt smaller than the default h2 */
+}
+
 .page-section > h1 {
   margin-bottom: var(--sp-4);
 }
