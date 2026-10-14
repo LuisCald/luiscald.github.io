@@ -188,3 +188,51 @@ function toggleMenu() {
     if (!navLinks) return;
     navLinks.classList.toggle("visible");
 }
+
+// Copy the email address to the clipboard instead of opening a mail client
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("copy-email");
+  const feedback = document.getElementById("copy-feedback");
+  if (!button || !feedback) return;
+
+  const idle = feedback.textContent;
+  let resetTimer;
+
+  const fallbackCopy = (text) => {
+    const field = document.createElement("textarea");
+    field.value = text;
+    field.setAttribute("readonly", "");
+    field.style.position = "absolute";
+    field.style.left = "-9999px";
+    document.body.appendChild(field);
+    field.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+    document.body.removeChild(field);
+    return ok;
+  };
+
+  const announce = (message, copied) => {
+    feedback.textContent = message;
+    feedback.classList.toggle("copied", copied);
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      feedback.textContent = idle;
+      feedback.classList.remove("copied");
+    }, 4000);
+  };
+
+  button.addEventListener("click", async () => {
+    const email = button.dataset.email;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(email);
+      } else if (!fallbackCopy(email)) {
+        throw new Error("copy failed");
+      }
+      announce(email + " copied to your clipboard", true);
+    } catch (err) {
+      announce("Copy failed \u2014 my email is " + email, false);
+    }
+  });
+});
