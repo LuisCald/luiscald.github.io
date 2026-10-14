@@ -32,7 +32,7 @@ permalink: /
   </div>
 
   <div class="hero-text">
-    <p>I am a <b>Postdoctoral Researcher</b> at the <b>University of Bonn</b>.</p>
+    <p><b>Welcome!</b> I am a <b>Postdoctoral Researcher</b> at the <b>University of Bonn</b>.</p>
     <p>My research focuses on <b>Macroeconomics</b>, <b>Inequality</b>, and <b>Monetary/Fiscal Policy</b>.</p>
     <p>I have completed my PhD only recently, also at the University of Bonn (<b>Summer 2026</b>).</p>
   </div>
