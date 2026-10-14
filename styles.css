@@ -286,6 +286,40 @@ html {
 }
 
 /* Contact icon row under the photo */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+.hero-photo .photo-credit {
+  text-align: center;
+  margin-top: var(--sp-1);
+}
+
+.hero-text {
+  width: 100%;
+  margin-top: var(--sp-6);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.hero-actions .market-note {
+  margin: 0;
+}
+
 .jmp-cta {
   margin-top: var(--sp-6);
 }
