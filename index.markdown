@@ -7,8 +7,8 @@ permalink: /
 <div class="hero">
   <div class="hero-top">
     <div class="hero-aside">
-      <a class="jmp-button" href="/#research">Job Market Paper</a>
       <p class="market-note">I am on the <b>2026&ndash;2027 job market</b>.</p>
+      <a class="jmp-button" href="/#research">Job Market Paper</a>
     </div>
   <div class="hero-photo">
     <img src="/images/profile.jpg" alt="Luis Calderon" class="profile-photo">
