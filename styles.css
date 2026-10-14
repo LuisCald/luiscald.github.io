@@ -223,7 +223,7 @@ header {
   margin-top: 80px;
   margin-bottom: var(--sp-16);
   background: var(--color-surface-content);
-  padding: var(--sp-6);
+  padding: var(--sp-6) calc(var(--sp-6) + 1in);
   border-radius: var(--radius-md);
   z-index: 1;
   pointer-events: none;
@@ -306,7 +306,7 @@ html {
   align-items: center;
   gap: var(--sp-4);
   align-self: start;
-  padding-top: calc(var(--sp-6) + var(--sp-2));
+  padding-top: calc(var(--sp-6) * 2.5);
 }
 
 .hero-aside .market-note {
