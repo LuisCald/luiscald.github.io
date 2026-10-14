@@ -292,6 +292,37 @@ html {
   align-items: center;
 }
 
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  width: 100%;
+}
+
+.hero-aside {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sp-4);
+}
+
+.hero-aside .market-note {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-top {
+    flex-direction: column;
+  }
+
+  .hero-aside {
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 2;
+  }
+}
+
 .hero-photo {
   width: 100%;
   max-width: 280px;

@@ -5,6 +5,11 @@ permalink: /
 ---
 
 <div class="hero">
+  <div class="hero-top">
+    <div class="hero-aside">
+      <a class="jmp-button" href="/#research">Job Market Paper</a>
+      <p class="market-note">I am on the <b>2026&ndash;2027 job market</b>.</p>
+    </div>
   <div class="hero-photo">
     <img src="/images/profile.jpg" alt="Luis Calderon" class="profile-photo">
     <div class="icon-row">
@@ -24,15 +29,12 @@ permalink: /
     <p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite">Click the envelope to copy my email</p>
     <p class="photo-credit">Photo by <a href="https://www.fotoyeh.de/portfolio-fotograf-bernadett-yehdou-bonn-koeln" target="_blank" rel="noopener noreferrer">Bernadett Yehdou</a></p>
   </div>
+  </div>
 
   <div class="hero-text">
-    <p>Hello, and thank you for visiting! I am a <b>Postdoctoral Researcher</b> in economics at the <b>University of Bonn</b>.</p>
-    <p>I have completed my PhD only recently, also at the University of Bonn (<b>Summer 2026</b>).</p>
+    <p>Hello, and thank you for visiting! I am a <b>Postdoctoral Researcher</b> at the <b>University of Bonn</b>.</p>
     <p>My research focuses on <b>Macroeconomics</b>, <b>Inequality</b>, and <b>Monetary/Fiscal Policy</b>.</p>
-    <div class="hero-actions">
-      <p class="market-note">I am on the <b>2026&ndash;2027 job market</b>.</p>
-      <a class="jmp-button" href="/#research">Job Market Paper</a>
-    </div>
+    <p>I have completed my PhD only recently, also at the University of Bonn (<b>Summer 2026</b>).</p>
   </div>
 </div>
 
