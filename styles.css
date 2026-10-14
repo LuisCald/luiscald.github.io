@@ -305,6 +305,8 @@ html {
   flex-direction: column;
   align-items: center;
   gap: var(--sp-4);
+  align-self: start;
+  padding-top: calc(var(--sp-6) + var(--sp-2));
 }
 
 .hero-aside .market-note {
@@ -319,6 +321,8 @@ html {
 
   .hero-aside {
     align-items: center;
+    align-self: center;
+    padding-top: 0;
     order: 2;
   }
 }
