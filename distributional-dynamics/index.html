@@ -229,6 +229,18 @@ nav .links a:hover { color: var(--accent); background: rgba(30,58,95,0.06); }
   letter-spacing: 0.03em;
 }
 
+/* UPDATES */
+.updates { list-style: none; max-width: var(--max-w); }
+.update { display: grid; grid-template-columns: 160px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid var(--border); }
+.update:first-child { border-top: none; padding-top: 4px; }
+.update-date { font-family: var(--font-mono); font-size: 13px; color: var(--ink-faint); padding-top: 3px; white-space: nowrap; }
+.update-tag { display: inline-block; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.09em; padding: 2px 9px; border-radius: 4px; margin-bottom: 7px; }
+.update-tag.upcoming { color: var(--amber); background: var(--amber-light); }
+.update-tag.released { color: var(--green); background: var(--green-light); }
+.update-body { color: var(--ink-light); font-size: 16px; line-height: 1.6; }
+.update-body strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 640px) { .update { grid-template-columns: 1fr; gap: 2px; } }
+
 /* SECTIONS */
 section { padding: 72px 0; }
 
@@ -877,6 +889,7 @@ footer .footer-bottom .brand {
     <a href="/" class="back-btn" title="Back to main site">&larr; Back</a>
     <a href="#overview" class="brand">distributional-dynamics</a>
     <div class="links">
+      <a href="#updates">Updates</a>
       <a href="#explorer">Data Explorer</a>
       <a href="#methodology">Methodology</a>
       <a href="#data">Data Details</a>
@@ -908,6 +921,31 @@ footer .footer-bottom .brand {
   </div>
 </header>
 
+<hr class="section-divider">
+
+<!-- UPDATES -->
+<section id="updates" style="padding:48px 0 40px">
+  <div class="container">
+    <div class="section-label">Updates</div>
+    <h2>Release Notes</h2>
+    <ul class="updates">
+      <li class="update">
+        <div class="update-date">October 24, 2026</div>
+        <div class="update-body">
+          <span class="update-tag upcoming">Upcoming</span><br>
+          <strong>New estimates.</strong> Fixes a mistake in the specification of the aggregate priors in the measurement equation.
+        </div>
+      </li>
+      <li class="update">
+        <div class="update-date">October 19, 2026</div>
+        <div class="update-body">
+          <span class="update-tag released">Released</span><br>
+          <strong>Updated paper.</strong> Current version of the paper posted, with a revised abstract and exposition.
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 <hr class="section-divider">
 
 <!-- COMING SOON -->
