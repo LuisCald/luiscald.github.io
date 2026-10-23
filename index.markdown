@@ -45,12 +45,12 @@ permalink: /
   <h2 class="side-label">Job Market Paper</h2>
   <ul class="research-list">
   <li>
-    <a class="paper-title" href="/distributional-dynamics/" target="_blank" rel="noopener noreferrer">Distributional Dynamics</a>
+    <a class="paper-title" href="https://www.distributionaldynamics.com/" target="_blank" rel="noopener noreferrer">Distributional Dynamics</a>
     <div class="meta">Authors: Luis Calderon, Christian Bayer and Moritz Kuhn</div>
     <div class="meta">Status: CEPR Discussion Paper 19829</div>
     <div class="meta"><a href="https://lnkd.in/eDh4i47Z" target="_blank" rel="noopener noreferrer">Video presentation</a></div>
     <div class="paper-links">
-      <a class="paper-link" href="/distributional-dynamics/" target="_blank" rel="noopener noreferrer">Website</a>
+      <a class="paper-link" href="https://www.distributionaldynamics.com/" target="_blank" rel="noopener noreferrer">Website</a>
       <a class="paper-link" href="/pdfs/BCK_DD.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
       <a class="paper-link" href="https://github.com/LuisCald/DD_replication" target="_blank" rel="noopener noreferrer">Replication code</a>
       <a class="paper-link" href="https://github.com/LuisCald/DD_data" target="_blank" rel="noopener noreferrer">Download data</a>
@@ -134,7 +134,7 @@ permalink: /
 
 <h2>Distributional Dynamics</h2>
 <ul>
-  <li><a href="/distributional-dynamics/">Project page</a></li>
+  <li><a href="https://www.distributionaldynamics.com/" target="_blank" rel="noopener noreferrer">Project page</a> &mdash; www.distributionaldynamics.com</li>
   <li>Data: <a href="https://github.com/LuisCald/DD_data" target="_blank" rel="noopener noreferrer">LuisCald/DD_data</a> &mdash; quarterly joint distribution of consumption, income &amp; wealth for U.S. households (1962&ndash;2024), with posterior uncertainty and Julia/Python helpers</li>
   <li>Replication package: <a href="https://github.com/LuisCald/DD_replication" target="_blank" rel="noopener noreferrer">LuisCald/DD_replication</a> &mdash; full estimation code for Bayer, Calderon &amp; Kuhn (2026)</li>
 </ul>
