@@ -33,8 +33,6 @@ nav:
     url: "/about/"
   - title: "Research"
     url: "/projects/"
-  - title: "BASEforHANK"
-    url: "/baseforhank/"
   - title: "Software"
     url: "/software/"
 

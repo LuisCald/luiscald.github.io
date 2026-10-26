@@ -119,16 +119,6 @@ permalink: /
 </section>
 </section>
 
-<section id="baseforhank" class="page-section">
-<h1>BASEforHANK</h1>
-
-<p><b>Bayesian Solution and Estimation (BASE) for HANK toolbox</b> is a Julia toolbox for estimating medium-scale HANK (Heterogeneous Agent New Keynesian) models, based on <i>&ldquo;Shocks, Frictions, and Inequality in US Business Cycles&rdquo;</i> by Christian Bayer, Benjamin Born, and Ralph Luetticke.</p>
-<ul>
-  <li>GitHub: <a href="https://github.com/BASEforHANK/BASEtoolbox.jl" target="_blank" rel="noopener noreferrer">BASEforHANK/BASEtoolbox.jl</a></li>
-  <li>Documentation: <a href="https://baseforhank.github.io/BASEtoolbox.jl/" target="_blank" rel="noopener noreferrer">baseforhank.github.io/BASEtoolbox.jl</a></li>
-</ul>
-</section>
-
 <section id="software" class="page-section">
 <h1>Software</h1>
 
@@ -140,9 +130,10 @@ permalink: /
 </ul>
 
 <h2>BASEforHANK</h2>
+<p><b>Bayesian Solution and Estimation (BASE) for HANK toolbox</b> is a Julia toolbox for estimating medium-scale HANK (Heterogeneous Agent New Keynesian) models, based on <i>&ldquo;Shocks, Frictions, and Inequality in US Business Cycles&rdquo;</i> by Christian Bayer, Benjamin Born, and Ralph Luetticke.</p>
 <ul>
-  <li><a href="/#baseforhank">BASEforHANK toolbox</a></li>
   <li>GitHub: <a href="https://github.com/BASEforHANK/BASEtoolbox.jl" target="_blank" rel="noopener noreferrer">BASEforHANK/BASEtoolbox.jl</a></li>
+  <li>Documentation: <a href="https://baseforhank.github.io/BASEtoolbox.jl/" target="_blank" rel="noopener noreferrer">baseforhank.github.io/BASEtoolbox.jl</a></li>
 </ul>
 
 <h2>Spatial standard errors (Conley-style)</h2>
