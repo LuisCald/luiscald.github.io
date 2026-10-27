@@ -64,6 +64,15 @@ permalink: /
   <h2 class="side-label">Working Papers</h2>
   <ul class="research-list">
   <li>
+    <a class="paper-title" href="/pdfs/Calderon_OilMonetary.pdf" target="_blank" rel="noopener noreferrer">Policy Rules and Policy Tools: The Price of Distributional Stabilization</a>
+    <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Version: October 2026</div>
+    <div class="paper-links">
+      <a class="paper-link" href="/pdfs/Calderon_OilMonetary.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+    </div>
+    <p>This paper examines how much monetary and fiscal policy can stabilize consumption inequality after an oil supply shock, and at what aggregate cost. I model policy instruments jointly with the distribution of U.S. household consumption, income, and wealth, and compare the outcomes policy can achieve under alternative mandates. The shock raises inflation, depresses real activity, and compresses the consumption distribution. Under single mandates, the policy rate has limited capacity to stabilize oil-induced inflation but substantial capacity to stabilize the consumption tails (the 90/10 spread). A dual mandate over inflation and unemployment mainly stabilizes real activity, with gains partly extending to the untargeted consumption and income spreads. Adding even a small weight on the consumption spread to the dual mandate removes much of the remaining spread loss at a modest aggregate cost, borne mostly through unemployment; stabilizing the spread further comes at a convex cost. Fiscal instruments extend how far consumption inequality can be stabilized, but do not lower its price. Finally, stabilizing the tails does not stabilize the whole distribution: a target on all ten consumption deciles relative to aggregate consumption is harder to meet with the policy rate, but benefits more from fiscal policy.</p>
+  </li>
+  <li>
     <a class="paper-title" href="/pdfs/Calderon_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Not All Oil Supply Shocks are Alike: The Macroeconomic and Distributional Impact of Oil Supply Shocks</a>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Version: May 2026</div>
@@ -78,15 +87,6 @@ permalink: /
     <span class="paper-title">Coordination Is Overrated: The Assignment of Monetary and Fiscal Policy</span>
     <div class="meta">Authors: Luis Calderon</div>
     <p>After an oil supply shock, how should the central bank and the fiscal authority coordinate? I study this question using a Bayesian VAR that tracks macroeconomic aggregates and the joint distribution of household consumption, income, and wealth, with identified monetary and fiscal policy shocks providing the levers for constructing policy counterfactuals. Letting the two authorities play simultaneous and sequential games under different assignments of inflation, unemployment and consumption inequality, I find coordination matters less than assignment and timing. A central bank that targets only inflation more than doubles the loss relative to a cooperative planner. A central bank with a dual mandate that moves first, with fiscal policy responsible for consumption inequality, comes closer to the cooperative outcome. Leaving consumption inequality unassigned is costly: even a cooperative planner with only a dual mandate does worse than every non-cooperative arrangement in which the central bank keeps its dual mandate and leads.</p>
-  </li>
-  <li>
-    <a class="paper-title" href="/pdfs/Calderon_OilMonetary.pdf" target="_blank" rel="noopener noreferrer">Policy Rules and Policy Tools: The Price of Distributional Stabilization</a>
-    <div class="meta">Authors: Luis Calderon</div>
-    <div class="meta">Version: October 2026</div>
-    <div class="paper-links">
-      <a class="paper-link" href="/pdfs/Calderon_OilMonetary.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
-    </div>
-    <p>This paper examines how much monetary and fiscal policy can stabilize consumption inequality after an oil supply shock, and at what aggregate cost. I model policy instruments jointly with the distribution of U.S. household consumption, income, and wealth, and compare the outcomes policy can achieve under alternative mandates. The shock raises inflation, depresses real activity, and compresses the consumption distribution. Under single mandates, the policy rate has limited capacity to stabilize oil-induced inflation but substantial capacity to stabilize the consumption tails (the 90/10 spread). A dual mandate over inflation and unemployment mainly stabilizes real activity, with gains partly extending to the untargeted consumption and income spreads. Adding even a small weight on the consumption spread to the dual mandate removes much of the remaining spread loss at a modest aggregate cost, borne mostly through unemployment; stabilizing the spread further comes at a convex cost. Fiscal instruments extend how far consumption inequality can be stabilized, but do not lower its price. Finally, stabilizing the tails does not stabilize the whole distribution: a target on all ten consumption deciles relative to aggregate consumption is harder to meet with the policy rate, but benefits more from fiscal policy.</p>
   </li>
   <li>
     <a class="paper-title" href="/spacereg/" target="_blank" rel="noopener noreferrer">Spatial Standard Errors for Several Commonly Used M-estimators</a>
@@ -106,11 +106,6 @@ permalink: /
   <h2 class="side-label">Works in Progress</h2>
   <ul class="research-list">
   <li>
-    <span class="paper-title">Distributional Dynamics: Germany</span>
-    <div class="meta">Authors: Luis Calderon, Christian Bayer and Moritz Kuhn</div>
-    <div class="meta">Status: Work in progress</div>
-  </li>
-  <li>
     <a class="paper-title" href="/pdfs/lg_wage_growth_slides.pdf" target="_blank" rel="noopener noreferrer">Sectoral Job Levels and Productivity</a>
     <div class="meta">Authors: Luis Calderon, Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
     <div class="meta">Status: Work in progress</div>
@@ -118,6 +113,11 @@ permalink: /
       <a class="paper-link" href="/pdfs/lg_wage_growth_slides.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
     </div>
     <p>Bayer and Kuhn (2023) show that a worker&rsquo;s <em>job level</em> explains nearly half of the differences in pay between individual workers in Germany. Job levels (<em>Leistungsgruppen</em>) are an official five-step ladder on which the German statistical office classifies jobs by their complexity, the autonomy they allow, and the responsibility they carry. We build the long-run, economy-wide counterpart: a newly digitized quarterly panel of West German wages and employment by job level, 1958&ndash;2021, merged with sector productivity accounts (EU-KLEMS). We report three findings. <b>First</b>, part of the productivity growth that standard growth accounting attributes to technology is in fact workers moving into higher job levels: about 10% of measured total factor productivity (TFP) growth in our sectors over 1975&ndash;2006, and 30% in Finance, 19% in Mining and 10% in Manufacturing. About half of it comes from the growth of the highest level we observe and most of the rest from the shrinking of the two lowest levels. <b>Second</b>, across sectors, the average job level explains 57% of the differences in average pay within a year, and it predicts output per hour worked but not output per unit of capital. <b>Third</b>, about twice as much of women&rsquo;s real wage growth as men&rsquo;s came from moving into higher job levels, among both blue- and white-collar workers. Beneath all three, about 86% of real wage growth over 1975&ndash;2006 came from higher pay <em>within</em> job levels and about 14% from workers moving <em>up</em> (25% in 1995&ndash;2006). The same split appears in the separate survey that replaced ours in 2007, so the conclusions do not depend on linking the two surveys.</p>
+  </li>
+  <li>
+    <span class="paper-title">Distributional Dynamics: Germany</span>
+    <div class="meta">Authors: Luis Calderon, Christian Bayer and Moritz Kuhn</div>
+    <div class="meta">Status: Work in progress</div>
   </li>
 </ul>
 </section>
