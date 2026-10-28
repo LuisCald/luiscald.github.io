@@ -84,11 +84,6 @@ permalink: /
     <p>Oil supply shocks shape U.S. inequality, and <em>the type of</em> oil supply shock matters for who bears the cost. In a Bayesian VAR that embeds the joint distribution of U.S. household income, consumption, and wealth alongside a standard oil-market block, sudden production shortfalls (Baumeister and Hamilton, 2019) raise inequality, whereas oil supply news (K&auml;nzig, 2021) mostly reduces it. These differences are not visible in the aggregate dynamics, which appear similar across shocks. A causal mediation analysis (Dufour and Wang, 2024) of these aggregate dynamics shows these shocks operate through distinct channels and it is this mechanism wedge, rather than the aggregate footprint, that determines who bears the cost. The analysis shares the view of Kilian and Lewis (2011) that policy responses should depend on the underlying causes of oil price shocks.</p>
   </li>
   <li>
-    <span class="paper-title">Coordination Is Overrated: The Assignment of Monetary and Fiscal Policy</span>
-    <div class="meta">Authors: Luis Calderon</div>
-    <p>After an oil supply shock, how should the central bank and the fiscal authority coordinate? I study this question using a Bayesian VAR that tracks macroeconomic aggregates and the joint distribution of household consumption, income, and wealth, with identified monetary and fiscal policy shocks providing the levers for constructing policy counterfactuals. Letting the two authorities play simultaneous and sequential games under different assignments of inflation, unemployment and consumption inequality, I find coordination matters less than assignment and timing. A central bank that targets only inflation more than doubles the loss relative to a cooperative planner. A central bank with a dual mandate that moves first, with fiscal policy responsible for consumption inequality, comes closer to the cooperative outcome. Leaving consumption inequality unassigned is costly: even a cooperative planner with only a dual mandate does worse than every non-cooperative arrangement in which the central bank keeps its dual mandate and leads.</p>
-  </li>
-  <li>
     <a class="paper-title" href="/spacereg/" target="_blank" rel="noopener noreferrer">Spatial Standard Errors for Several Commonly Used M-estimators</a>
     <div class="meta">Authors: Luis Calderon and Leander Heldring</div>
     <div class="meta">Status: R&amp;R at the International Journal of Computational Economics and Econometrics</div>
@@ -105,6 +100,12 @@ permalink: /
 <section class="side-section">
   <h2 class="side-label">Works in Progress</h2>
   <ul class="research-list">
+  <li>
+    <span class="paper-title">Coordination Is Overrated: The Assignment of Monetary and Fiscal Policy</span>
+    <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Status: Work in progress</div>
+    <p>After an oil supply shock, how should the central bank and the fiscal authority coordinate? I study this question using a Bayesian VAR that tracks macroeconomic aggregates and the joint distribution of household consumption, income, and wealth, with identified monetary and fiscal policy shocks providing the levers for constructing policy counterfactuals. Letting the two authorities play simultaneous and sequential games under different assignments of inflation, unemployment and consumption inequality, I find coordination matters less than assignment and timing. A central bank that targets only inflation more than doubles the loss relative to a cooperative planner. A central bank with a dual mandate that moves first, with fiscal policy responsible for consumption inequality, comes closer to the cooperative outcome. Leaving consumption inequality unassigned is costly: even a cooperative planner with only a dual mandate does worse than every non-cooperative arrangement in which the central bank keeps its dual mandate and leads.</p>
+  </li>
   <li>
     <a class="paper-title" href="/pdfs/lg_wage_growth_slides.pdf" target="_blank" rel="noopener noreferrer">Sectoral Job Levels and Productivity</a>
     <div class="meta">Authors: Luis Calderon, Christian Bayer, Moritz Kuhn and See-Yu Chan</div>
