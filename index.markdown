@@ -101,6 +101,13 @@ permalink: /
   <h2 class="side-label">Works in Progress</h2>
   <ul class="research-list">
   <li>
+    <span class="paper-title">Do Oil Inventories Rise After Oil Supply News?</span>
+    <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Version: November 2026</div>
+    <div class="meta">Status: Work in progress</div>
+    <p>News about cuts in future oil supply is thought to increase oil inventories on impact: markets store oil today because they expect less of it tomorrow. The same response is the evidence behind the concern that such news is just a storage demand shock. I revisit it for the news shocks identified from oil futures prices around OPEC announcements. With more lags and a richer information set, inventories fall on impact and rise only about two years later. OPEC production itself hardly responds to the announcements that move prices. A decomposition of the inventory response into transmission channels shows that the oil price accounts for most of the later rise: inventories are drawn down while the price is high and rebuilt once it eases. On impact, the news shock does not look like a storage demand shock.</p>
+  </li>
+  <li>
     <span class="paper-title">Coordination Is Overrated: The Assignment of Monetary and Fiscal Policy</span>
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Work in progress</div>
