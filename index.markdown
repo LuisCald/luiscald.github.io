@@ -73,17 +73,6 @@ permalink: /
     <p>This paper examines how much monetary and fiscal policy can stabilize consumption inequality after an oil supply shock, and at what aggregate cost. I model policy instruments jointly with the distribution of U.S. household consumption, income, and wealth in a Bayesian VAR, and compare the outcomes policy can achieve under alternative mandates. The shock raises inflation, depresses real activity, and compresses the consumption distribution. Under single mandates, the policy rate has limited capacity to stabilize oil-induced inflation but substantial capacity to stabilize the consumption tails (the 90/10 spread). A dual mandate over inflation and unemployment mainly stabilizes real activity, with gains partly extending to the untargeted consumption and income spreads. Adding even a small weight on the consumption spread to the dual mandate removes much of the remaining spread loss at a modest aggregate cost, borne mostly through unemployment; stabilizing the spread further comes at a convex cost. Fiscal instruments extend how far consumption inequality can be stabilized, but do not lower its price in achieving it. Finally, stabilizing the tails does not stabilize the whole distribution: a target on all ten consumption deciles relative to aggregate consumption is harder to meet with the policy rate, but benefits more from fiscal policy.</p>
   </li>
   <li>
-    <a class="paper-title" href="/pdfs/Calderon_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Not All Oil Supply Shocks are Alike: The Macroeconomic and Distributional Impact of Oil Supply Shocks</a>
-    <div class="meta">Authors: Luis Calderon</div>
-    <div class="meta">Version: May 2026</div>
-    <div class="meta">Poster presented at CESifo Macro with Micro Data</div>
-    <div class="paper-links">
-      <a class="paper-link" href="/pdfs/Calderon_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
-      <a class="paper-link" href="/pdfs/poster_DistributionalOil.pdf" target="_blank" rel="noopener noreferrer">Poster</a>
-    </div>
-    <p>Oil supply shocks shape U.S. inequality, and <em>the type of</em> oil supply shock matters for who bears the cost. In a Bayesian VAR that embeds the joint distribution of U.S. household income, consumption, and wealth alongside a standard oil-market block, sudden production shortfalls (Baumeister and Hamilton, 2019) raise inequality, whereas oil supply news (K&auml;nzig, 2021) mostly reduces it. These differences are not visible in the aggregate dynamics, which appear similar across shocks. A causal mediation analysis (Dufour and Wang, 2024) of these aggregate dynamics shows these shocks operate through distinct channels and it is this mechanism wedge, rather than the aggregate footprint, that determines who bears the cost. The analysis shares the view of Kilian and Lewis (2011) that policy responses should depend on the underlying causes of oil price shocks.</p>
-  </li>
-  <li>
     <a class="paper-title" href="/spacereg/" target="_blank" rel="noopener noreferrer">Spatial Standard Errors for Several Commonly Used M-estimators</a>
     <div class="meta">Authors: Luis Calderon and Leander Heldring</div>
     <div class="meta">Status: R&amp;R at the International Journal of Computational Economics and Econometrics</div>
@@ -112,6 +101,11 @@ permalink: /
     <div class="meta">Authors: Luis Calderon</div>
     <div class="meta">Status: Work in progress</div>
     <p>How should the central bank and the fiscal authority coordinate? I study this question using a Bayesian VAR that tracks macroeconomic aggregates and the joint distribution of household consumption, income, and wealth, with identified monetary and fiscal policy shocks providing the levers for constructing policy counterfactuals. In the context of an oil supply shock, letting the two authorities play simultaneous and sequential games under different assignments of inflation, unemployment and consumption inequality, I find coordination matters less than assignment and timing. A central bank that targets only inflation more than doubles the loss relative to a cooperative planner. A central bank with a dual mandate that moves first, with fiscal policy responsible for consumption inequality, comes closer to the cooperative outcome. Leaving consumption inequality unassigned is costly: even a cooperative planner with only a dual mandate does worse than every non-cooperative arrangement in which the central bank keeps its dual mandate and leads.</p>
+  </li>
+  <li>
+    <span class="paper-title">Unequal Barrels and Slick Consequences: The Distributional Effects of Oil Supply Disruptions</span>
+    <div class="meta">Authors: Luis Calderon</div>
+    <div class="meta">Status: Work in progress</div>
   </li>
   <li>
     <a class="paper-title" href="/pdfs/lg_wage_growth_slides.pdf" target="_blank" rel="noopener noreferrer">Sectoral Job Levels and Productivity</a>
